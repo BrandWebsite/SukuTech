@@ -1,18 +1,26 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import LocationBanner from "../components/LocationBanner";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const RootLayout = () => {
   return (
-    <div>
-        <NavBar/>
-        <div>
-            <Outlet/>
-            <Footer/>
-        </div>
-    </div>
-  )
-}
+    <div className="flex flex-col min-h-screen">
+      {/* Top Banner */}
+      <LocationBanner />
 
-export default RootLayout
+      {/* Sticky NavBar handled inside Navbar component */}
+      <Navbar />
+
+      {/* Page Content */}
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default RootLayout;

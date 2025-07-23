@@ -11,7 +11,11 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 
 //Lazy-loaded pages components
-const LandingPage = lazy(()=>import("./pages/LandingPage"))
+const LandingPage = lazy(()=>import("./pages/LandingPage"));
+const About = lazy(()=>import('./pages/About'));
+const Contact = lazy(()=>import('./pages/Contact'));
+const Careers = lazy(()=>import('./pages/Careers'));
+const Services = lazy(()=>import('./pages/Services'));
 function App() {
 
   return (
@@ -60,6 +64,10 @@ function App() {
         <Routes>
           <Route path='/' element={<RootLayout/>}>
             <Route index element={<LandingPage/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/service' element={<Services/>}/>
+            <Route path='/careers' element={<Careers />}/>
+            <Route path='/contact' element={<Contact/>} />
           </Route>
         </Routes>
 
