@@ -30,7 +30,8 @@ const GoogleLogo = () => (
 
 const RotatingCircle = () => {
   return (
-    <div className="relative w-24 h-24 md:w-40 md:h-40">
+    <div className="relative w-24 h-24 md:w-40 md:h-40
+    ">
       {/* Blurred Outer Background */}
       <div className="absolute inset-0 backdrop-blur-sm bg-white/10 rounded-full z-0" />
 
