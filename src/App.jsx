@@ -15,7 +15,9 @@ const LandingPage = lazy(()=>import("./pages/LandingPage"));
 const About = lazy(()=>import('./pages/About'));
 const Contact = lazy(()=>import('./pages/Contact'));
 const Careers = lazy(()=>import('./pages/Careers'));
-const Services = lazy(()=>import('./pages/Services'));
+const DigitalTransform = lazy(()=>import('./pages/DigiTransform'))
+const DigitalVisibility = lazy(()=>import('./pages/DigitalVisibility'))
+const SoftwareSolutions = lazy(()=>import('./pages/SoftwareSolutions'))
 function App() {
 
   return (
@@ -57,20 +59,29 @@ function App() {
       {/* Routing with Lazy Loading */}
 
       <BrowserRouter>
-        <ScrollToTop/>
-        <Suspense fallback={<Loader/>}>
-
-        {/* routes */}
-        <Routes>
-          <Route path='/' element={<RootLayout/>}>
-            <Route index element={<LandingPage/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/service' element={<Services/>}/>
-            <Route path='/careers' element={<Careers />}/>
-            <Route path='/contact' element={<Contact/>} />
-          </Route>
-        </Routes>
-
+        <ScrollToTop />
+        <Suspense fallback={<Loader />}>
+          {/* routes */}
+          <Routes>
+            <Route path="/" element={<RootLayout />}>
+              <Route index element={<LandingPage />} />
+              <Route path="/about" element={<About />} />
+              <Route
+                path="/digital-transformation"
+                element={<DigitalTransform />}
+              />
+              <Route
+                path="/digital-visibility"
+                element={<DigitalVisibility />}
+              />
+              <Route
+                path="/software-solutions"
+                element={<SoftwareSolutions />}
+              />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/contact" element={<Contact />} />
+            </Route>
+          </Routes>
         </Suspense>
       </BrowserRouter>
     </>

@@ -9,7 +9,7 @@ const AboutWhoWeAre = () => {
         {/* Left Content */}
         <div className="md:w-1/2">
           <h4 className="text-sm text-blue-600  capitalize font-bold mb-2">
-            Who we are
+            Our Story, Our Purpose
           </h4>
           <h2 className="text-2xl md:text-4xl font-bold capitalize text-gray-900 mb-4">
             A Legacy of Innovation and Impact
