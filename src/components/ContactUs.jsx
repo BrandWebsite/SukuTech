@@ -19,13 +19,13 @@ const ContactUs = () => {
 
       {/* Phone Number */}
       <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
-        +123 (4567) 890
+        +233 24 256 4188
       </span>
 
       {/* Email */}
       <span className="text-base sm:text-lg md:text-xl text-white font-medium flex items-center gap-3">
         <BsEnvelopeFill className="text-blue-800" size={24} />
-        example@gmail.com
+        info@sukutechnologies.com
       </span>
 
       {/* CTA Button */}

@@ -6,7 +6,7 @@ import ServicesHome from "../components/ServicesHome";
 import PartnerText from "../components/PartnerText";
 import HowWeWork from "../components/HowWeWork";
 import TestimonialsHome from "../components/TestimonialsHome";
-import PortfolioHome from "../components/PortfolioHome";
+
 import ContactBanner from "../components/ContactBanner";
 
 const LandingPage = () => {
@@ -19,7 +19,6 @@ const LandingPage = () => {
       <PartnerText/>
       <HowWeWork/>
       <TestimonialsHome/>
-      {/* <PortfolioHome/> */}
       <ContactBanner/>
     </div>
   );

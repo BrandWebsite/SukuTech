@@ -1,10 +1,19 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ArrowRight, FolderOpen } from "lucide-react";
+import {
+    FolderOpen,
+    BookOpen,
+  BarChart,
+  ClipboardCheck,
+  Map,
+  Target,
+  UserCheck,
+  ArrowRight
+} from "lucide-react";
 import digiImage from "../assets/softwareSolutions.jpg";
-import serviceImg from "../assets/service-details.jpg";
-import serviceIcon1 from "../assets/services-details-icon-1.png";
-import serviceIcon2 from "../assets/services-details-icon-2.png";
+import serviceImg1 from "../assets/CustomSoftware.jpg";
+import serviceImg2 from "../assets/MobileWeb.jpg";
+import serviceImg3 from "../assets/main&Support.jpg";
 import ContactUs from "../components/contactUs";
 
 const services = [
@@ -12,6 +21,86 @@ const services = [
   "Web & Mobile Application Development",
   "Maintenance & Support Services",
 ];
+
+const serviceDetails = {
+  "Custom Software Development": {
+    description: `
+Get tailor-made software designed specifically for your business processes. Whether internal tools or customer-facing apps, we deliver secure, scalable, and efficient solutions that are aligned with your long-term vision.
+
+Our approach is iterative and user-focused—ensuring high performance, seamless integrations, and future scalability. From requirements gathering to post-deployment optimization, we deliver precision-built systems that drive business outcomes.
+    `,
+    image: serviceImg1,
+    features: [
+      {
+        icon: BarChart,
+        title: "Fully Customized Systems",
+        desc: "Software tailored exactly to your business requirements and workflows.",
+      },
+      {
+        icon: Map,
+        title: "Legacy Integration",
+        desc: "Connect seamlessly with your existing tools and databases.",
+      },
+    ],
+    benefits: [
+      "Agile, iterative development",
+      "Secure and scalable backend architecture",
+      "End-to-end deployment support",
+    ],
+  },
+
+  "Web & Mobile Application Development": {
+    description: `
+Engage your audience with beautifully crafted, high-performance web and mobile applications—designed with user experience and modern technologies in mind.
+
+We develop responsive, cross-platform apps that are visually compelling, easy to use, and built for scale. Whether you're launching a startup MVP or enhancing enterprise systems, we create digital products that delight and perform.
+    `,
+    image: serviceImg2,
+    features: [
+      {
+        icon: Target,
+        title: "Responsive Web Apps",
+        desc: "Seamless user experience across all devices and browsers.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Native & Hybrid Mobile Development",
+        desc: "Built for iOS and Android using robust mobile-first frameworks.",
+      },
+    ],
+    benefits: [
+      "Modern UI/UX design",
+      "API & database integration",
+      "App store deployment support",
+    ],
+  },
+
+  "Maintenance & Support Services": {
+    description: `
+Your systems deserve consistent care. We provide ongoing maintenance, performance monitoring, and security support to keep your digital assets running smoothly and securely.
+
+From scheduled updates to incident resolution, our support services ensure your applications stay current, optimized, and available. We operate with a proactive mindset—solving issues before they impact your users.
+    `,
+    image: serviceImg3,
+    features: [
+      {
+        icon: BookOpen,
+        title: "24/7 Monitoring & Uptime",
+        desc: "Real-time system oversight to ensure availability and stability.",
+      },
+      {
+        icon: UserCheck,
+        title: "Bug Fixing & Optimization",
+        desc: "Ongoing improvements and fast resolution of any issues.",
+      },
+    ],
+    benefits: [
+      "Regular updates and security patches",
+      "SLA-based support plans",
+      "Peace of mind and long-term reliability",
+    ],
+  },
+};
 
 const SoftwareSolutions = () => {
   const [activeService, setActiveService] = useState(services[0]);
@@ -25,7 +114,7 @@ const SoftwareSolutions = () => {
   const isContentInView = useInView(contentRef, { once: true });
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
-
+  const current = serviceDetails[activeService];
   return (
     <div className="w-full min-h-screen">
       {/* Header Section */}
@@ -67,11 +156,12 @@ const SoftwareSolutions = () => {
         className="max-w-5xl mx-auto px-4 text-center py-10"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-          Empowering Businesses through Innovation
+          Building Scalable Digital Products for Modern Businesses
         </h2>
         <p className="text-gray-600 text-base font-medium md:text-lg leading-relaxed">
-          Our Software Solutions are tailored to help businesses build, scale,
-          and maintain modern digital experiences.
+          We design, build, and maintain digital products that solve real
+          problems. From custom software to mobile applications, we deliver
+          scalable and user-friendly systems built around your business model.
         </p>
       </motion.div>
 
@@ -85,19 +175,25 @@ const SoftwareSolutions = () => {
           transition={{ duration: 0.8 }}
           className="lg:w-2/3 space-y-10"
         >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="rounded-md overflow-hidden shadow"
-          >
-            <img
-              src={serviceImg}
+          {/* Dynamic Image */}
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeService}
+              src={current.image}
               alt={activeService}
-              loading="lazy"
-              className="w-full h-[400px] object-cover"
+              initial={{ opacity: 0, scale: 0.95, x: 60 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.95, x: -30 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.1, // delay entry for better pacing
+              }}
+              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
             />
-          </motion.div>
+          </AnimatePresence>
 
+          {/* Tab Content */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeService}
@@ -110,18 +206,21 @@ const SoftwareSolutions = () => {
               <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Alternative innovation to ethical network environmental
-                whiteboard pursue compelling results for premier methods
-                empowerment.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Interactively harness integrated ROI whereas frictionless
-                products. Proactively integrate turnkey meta-services.
-              </p>
+              {current.description
+                .trim()
+                .split("\n\n")
+                .map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-gray-600 leading-relaxed font-medium text-justify mb-4"
+                  >
+                    {para.trim()}
+                  </p>
+                ))}
             </motion.div>
           </AnimatePresence>
 
+          {/* Icon Boxes */}
           <motion.div
             ref={iconsRef}
             initial={{ opacity: 0, y: 40 }}
@@ -129,41 +228,64 @@ const SoftwareSolutions = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {[serviceIcon1, serviceIcon2].map((icon, idx) => (
+            {current.features.map((feat, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 120 }}
                 className="flex items-start gap-4 p-6 bg-gray-100 rounded-md shadow-sm"
               >
-                <img src={icon} alt="" loading="lazy" className="w-14 h-14" />
+                <feat.icon className="w-10 h-10 text-blue-600" />
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                    {idx === 0 ? "Custom Software" : "Mobile Application"}
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                    {feat.title}
                   </h4>
                   <p className="text-base text-gray-600 font-medium leading-7">
-                    Ethical network environmental architect go forward
-                    opportunities credibly implement.
+                    {feat.desc}
                   </p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
+          {/* Benefits Section */}
           <motion.div
             ref={benefitsRef}
             initial={{ opacity: 0, y: 40 }}
             animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-4"
+            className="bg-slate-50 rounded-2xl shadow-sm p-6 md:p-8 space-y-5"
           >
-            <h4 className="text-2xl font-semibold text-gray-800">
-              What are the Benefits?
+            <h4 className="text-2xl md:text-3xl font-semibold text-slate-800">
+              What Are the Benefits?
             </h4>
-            <p className="text-gray-600">
-              Alternative innovation to ethical networks that pursue compelling
-              results.
-            </p>
+            <ul className="space-y-3">
+              {current.benefits.map((benefit, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-slate-700 text-[1rem] md:text-[1.05rem] font-medium leading-relaxed"
+                >
+                  <span className="text-blue-500 mt-1">
+                    {/* Icon (e.g., Lucide Check or Heroicons) */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </motion.div>
 

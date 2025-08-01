@@ -1,11 +1,23 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ArrowRight, FolderOpen } from "lucide-react";
+
 import digiImage from "../assets/digitalVisibility.jpg";
-import serviceImg from "../assets/service-details.jpg";
-import serviceIcon1 from "../assets/services-details-icon-1.png";
-import serviceIcon2 from "../assets/services-details-icon-2.png";
+import serviceImg1 from "../assets/SEO.jpg";
+import serviceImg2 from "../assets/SocialMarketing.jpg";
+import serviceImg3 from "../assets/WebDesign.jpg";
+import serviceImg4 from "../assets/WebHost.jpg";
 import ContactUs from "../components/contactUs"; 
+import {
+  ArrowRight,
+  FolderOpen,
+  BarChart,
+  ThumbsUp,
+  Megaphone,
+  Globe,
+  Server,
+  ShieldCheck,
+  ClipboardList,
+} from "lucide-react";
 
 const services = [
   "SEO (Search Engine Optimization)",
@@ -13,6 +25,93 @@ const services = [
   "Website Design,Development & Maintenance",
   "Domain & Web Hosting Services",
 ];
+
+const serviceDetails = {
+  "SEO (Search Engine Optimization)": {
+    description: `Be found where it matters most. Our SEO service is engineered to boost your visibility across search engines. We focus on improving your site's speed, structure, and relevance to attract organic traffic and convert visitors into loyal customers. With a technical foundation and a strategic content approach, we help your brand rise in search rankings.`,
+    image: serviceImg1,
+    features: [
+      {
+        icon: BarChart,
+        title: "Technical SEO Audits",
+        desc: "Uncover performance blockers with comprehensive site diagnostics.",
+      },
+      {
+        icon: ClipboardList,
+        title: "Keyword & Competitor Analysis",
+        desc: "Identify growth opportunities through deep keyword and market research.",
+      },
+    ],
+    benefits: [
+      "Improved search engine rankings",
+      "Increased organic traffic",
+      "Higher on-site engagement",
+    ],
+  },
+  "Social Media Marketing": {
+    description: `Connect with your audience where they spend their time. We create and manage dynamic social strategies that promote engagement, build brand loyalty, and drive real business outcomes. Through platform-specific content, targeted ads, and community interaction, we amplify your digital voice.`,
+    image: serviceImg2,
+    features: [
+      {
+        icon: Megaphone,
+        title: "Creative Campaign Design",
+        desc: "Tailored strategies and visuals for each platform to maximize reach.",
+      },
+      {
+        icon: ThumbsUp,
+        title: "Growth & Engagement Insights",
+        desc: "Real-time tracking and analytics to guide decision-making.",
+      },
+    ],
+    benefits: [
+      "Increased brand awareness",
+      "Higher audience engagement",
+      "Stronger customer loyalty",
+    ],
+  },
+  "Website Design,Development & Maintenance": {
+    description: `Your website is your digital storefront. We design and build high-performance websites that blend aesthetics with functionality. From custom UI/UX design to responsive development and maintenance, we ensure your website delivers seamless user experiences that drive conversions.`,
+    image: serviceImg3,
+    features: [
+      {
+        icon: Globe,
+        title: "Responsive & SEO-Friendly Layouts",
+        desc: "Mobile-optimized, fast-loading sites that rank well and perform better.",
+      },
+      {
+        icon: ClipboardList,
+        title: "CMS Integration (WordPress, Headless CMS)",
+        desc: "Easily manage content using modern platforms like WordPress and Next.js.",
+      },
+    ],
+    benefits: [
+      "Faster website performance",
+      "Improved user engagement",
+      "Easier content management",
+    ],
+  },
+  "Domain & Web Hosting Services": {
+    description: `Ensure your digital presence is always live and secure. Our hosting and domain services provide stability, speed, and protection for your business-critical websites. We manage your backend infrastructure so you can focus on growth.`,
+    image: serviceImg4,
+    features: [
+      {
+        icon: Server,
+        title: "Managed Cloud Hosting",
+        desc: "Reliable, scalable hosting solutions for every business size.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "SSL & Uptime Monitoring",
+        desc: "Continuous protection and performance tracking for peace of mind.",
+      },
+    ],
+    benefits: [
+      "Faster loading speeds",
+      "Improved site security",
+      "Always-on web presence",
+    ],
+  },
+};
 
 const DigitalVisibility = () => {
   const [activeService, setActiveService] = useState(services[0]);
@@ -26,6 +125,8 @@ const DigitalVisibility = () => {
   const isContentInView = useInView(contentRef, { once: true });
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
+
+  const current = serviceDetails[activeService];
 
   return (
     <div className="w-full min-h-screen">
@@ -68,7 +169,7 @@ const DigitalVisibility = () => {
         className="max-w-5xl mx-auto px-4 text-center py-10"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-          Empowering Businesses through Visibility
+          Strategic Solutions to Grow Your Online Presence
         </h2>
         <p className="text-gray-600 text-base font-medium md:text-lg leading-relaxed">
           Our digital visibility services are tailored to boost your presence
@@ -86,19 +187,23 @@ const DigitalVisibility = () => {
           transition={{ duration: 0.8 }}
           className="lg:w-2/3 space-y-10"
         >
-          {/* Image */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="rounded-md overflow-hidden shadow"
-          >
-            <img
-              src={serviceImg}
+          {/* Dynamic Image */}
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeService}
+              src={current.image}
               alt={activeService}
-              loading="lazy"
-              className="w-full h-[400px] object-cover"
+              initial={{ opacity: 0, scale: 0.95, x: 60 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.95, x: -30 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.1, // delay entry for better pacing
+              }}
+              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
             />
-          </motion.div>
+          </AnimatePresence>
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
@@ -113,14 +218,17 @@ const DigitalVisibility = () => {
               <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
-              <p className="text-gray-600 leading-relaxed">
-                We apply leading strategies and tools to make your brand more
-                discoverable and relevant in a competitive digital market.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                From SEO to web hosting, our team ensures consistent performance
-                and visibility across platforms.
-              </p>
+              {current.description
+                .trim()
+                .split("\n\n")
+                .map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-gray-600 leading-relaxed font-medium text-justify mb-4"
+                  >
+                    {para.trim()}
+                  </p>
+                ))}
             </motion.div>
           </AnimatePresence>
 
@@ -132,42 +240,64 @@ const DigitalVisibility = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {[serviceIcon1, serviceIcon2].map((icon, idx) => (
+            {current.features.map((feat, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 120 }}
-                className="flex items-start gap-4 p-6 rounded-md shadow-sm bg-gray-100 text-white"
+                className="flex items-start gap-4 p-6 bg-gray-100 rounded-md shadow-sm"
               >
-                <img src={icon} alt="" loading="lazy" className="w-14 h-14" />
+                <feat.icon className="w-10 h-10 text-blue-600" />
                 <div>
-                  <h4 className="text-lg font-semibold mb-4 text-gray-800">
-                    {idx === 0 ? "Search Optimization" : "Platform Management"}
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                    {feat.title}
                   </h4>
-                  <p className="text-base font-medium text-gray-600 font leading-7">
-                    Strategic digital practices to enhance your reach and brand
-                    consistency.
+                  <p className="text-base text-gray-600 font-medium leading-7">
+                    {feat.desc}
                   </p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Benefits */}
+          {/* Benefits Section */}
           <motion.div
             ref={benefitsRef}
             initial={{ opacity: 0, y: 40 }}
             animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-4"
+            className="bg-slate-50 rounded-2xl shadow-sm p-6 md:p-8 space-y-5"
           >
-            <h4 className="text-2xl font-semibold text-gray-800">
-              Why Visibility Matters?
+            <h4 className="text-2xl md:text-3xl font-semibold text-slate-800">
+              What Are the Benefits?
             </h4>
-            <p className="text-gray-600">
-              Reach the right audience, improve conversions, and lead your
-              market through digital clarity.
-            </p>
+            <ul className="space-y-3">
+              {current.benefits.map((benefit, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-slate-700 text-[1rem] md:text-[1.05rem] font-medium leading-relaxed"
+                >
+                  <span className="text-blue-500 mt-1">
+                    {/* Icon (e.g., Lucide Check or Heroicons) */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </motion.div>
 

@@ -1,17 +1,108 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ArrowRight, FolderOpen } from "lucide-react";
+import {
+  ArrowRight,
+  FolderOpen,
+  BarChart,
+  Target,
+  BookOpen,
+  Map,
+  UserCheck,
+  ClipboardCheck,
+} from "lucide-react";
 import digiImage from "../assets/digitalTransfrom.jpg";
-import serviceImg from "../assets/service-details.jpg";
-import serviceIcon1 from "../assets/services-details-icon-1.png";
-import serviceIcon2 from "../assets/services-details-icon-2.png";
+import serviceImg1 from "../assets/Analyses.jpg";
+import serviceImg2 from "../assets/DigiStrategy.jpg";
+import serviceImg3 from "../assets/changeManage.jpg";
 import ContactUs from "../components/contactUs";
+
 const services = [
   "Analysis & Consulting",
   "Digital Strategy Development",
   "Change Management & Training",
-  "Scaling and Support",
 ];
+
+const serviceDetails = {
+  "Analysis & Consulting": {
+    description: `
+Our Analysis & Consulting service helps you discover new possibilities by examining the full spectrum of your business landscape. We combine rigorous process diagnostics, digital readiness evaluations, and stakeholder interviews to uncover operational gaps, customer friction points, and untapped opportunities. With a focus on actionable intelligence, we craft data-backed recommendations tailored to your business model, goals, and market conditions.
+
+We don’t just deliver insight—we shape strategy. Whether it's identifying performance bottlenecks, aligning digital tools with business objectives, or uncovering efficiencies in the customer journey, our analysis drives meaningful transformation. This service equips your leadership with clarity, confidence, and a strong foundation for smart, future-focused decisions.
+    `,
+    image: serviceImg1,
+    features: [
+      {
+        icon: BarChart,
+        title: "Business Process Analysis",
+        desc: "Gain insight into operational gaps and streamline for maximum efficiency.",
+      },
+      {
+        icon: Map,
+        title: "Customer Journey Mapping",
+        desc: "Understand user behavior across touchpoints to optimize service delivery.",
+      },
+    ],
+    benefits: [
+      "Data-driven decision-making",
+      "Improved business clarity",
+      "Customer-centric strategies",
+    ],
+  },
+
+  "Digital Strategy Development": {
+    description: `
+Digital transformation without a strategy is just noise. Our Digital Strategy Development service is designed to create a structured, phased plan that connects your vision with measurable digital outcomes. We evaluate your current digital maturity, prioritize opportunities for innovation, and identify the right mix of platforms, technologies, and delivery models that will support scalable, sustainable growth.
+
+From cost-benefit analysis to technology roadmapping, we help you build a future-proof digital foundation. We align cross-functional teams and define success metrics so that every investment supports your long-term business goals. With this service, you'll move beyond buzzwords and start building digital capabilities that are real, relevant, and revenue-driving.
+    `,
+    image: serviceImg2,
+    features: [
+      {
+        icon: Target,
+        title: "Goal-driven Roadmap",
+        desc: "Strategically align your goals with actionable steps and outcomes.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Technology Recommendations",
+        desc: "Select the best-fit digital tools and systems for sustainable growth.",
+      },
+    ],
+    benefits: [
+      "Aligned digital investments",
+      "Improved tech ROI",
+      "Efficient implementation paths",
+    ],
+  },
+
+  "Change Management & Training": {
+    description: `
+True digital transformation is powered by people. Our Change Management & Training service ensures that your team is equipped, engaged, and enthusiastic about embracing new ways of working. We work closely with your leaders and end-users to develop structured onboarding plans, tailored training programs, and post-launch support that minimize resistance and maximize impact.
+
+We focus on building an adaptive culture where continuous learning and change are embraced. From executive coaching to team workshops and self-service learning portals, we provide the tools and guidance needed to help your organization transition smoothly. This people-first approach empowers your workforce to deliver on the promise of your technology investments.
+    `,
+    image: serviceImg3,
+    features: [
+      {
+        icon: BookOpen,
+        title: "Employee Enablement",
+        desc: "Hands-on training sessions to equip your team with necessary skills.",
+      },
+      {
+        icon: UserCheck,
+        title: "Post-Implementation Coaching",
+        desc: "Support mechanisms to guide teams beyond the launch phase.",
+      },
+    ],
+    benefits: [
+      "Smooth change adoption",
+      "Confident and trained staff",
+      "Long-term success sustainability",
+    ],
+  },
+};
+
+
 
 const DigiTransform = () => {
   const [activeService, setActiveService] = useState(services[0]);
@@ -26,6 +117,8 @@ const DigiTransform = () => {
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
 
+  const current = serviceDetails[activeService];
+
   return (
     <div className="w-full min-h-screen">
       {/* ==== Header Section ==== */}
@@ -33,7 +126,6 @@ const DigiTransform = () => {
         <img
           src={digiImage}
           alt="Digital Transformation"
-          loading="lazy"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-blue-800/55 flex items-center justify-center">
@@ -70,8 +162,10 @@ const DigiTransform = () => {
           Empowering Businesses through Innovation
         </h2>
         <p className="text-gray-600 text-base font-medium md:text-lg leading-relaxed">
-          Our Digital Transformation Solutions are designed to help businesses
-          navigate the rapidly evolving digital landscape.
+          Our Digital Transformation Solutions help organizations align
+          technology with business goals. From strategic analysis and planning
+          to change enablement and operational agility, we empower you to thrive
+          in the digital era.
         </p>
       </motion.div>
 
@@ -85,19 +179,24 @@ const DigiTransform = () => {
           transition={{ duration: 0.8 }}
           className="lg:w-2/3 space-y-10"
         >
-          {/* Image */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="rounded-md overflow-hidden shadow"
-          >
-            <img
-              src={serviceImg}
-              alt={activeService}
-              loading="lazy"
-              className="w-full h-[400px] object-cover"
-            />
-          </motion.div>
+          {/* Dynamic Image */}
+          <AnimatePresence mode="wait">
+  <motion.img
+    key={activeService}
+    src={current.image}
+    alt={activeService}
+    initial={{ opacity: 0, scale: 0.95, x: 60 }}
+    animate={{ opacity: 1, scale: 1, x: 0 }}
+    exit={{ opacity: 0, scale: 0.95, x: -30 }}
+    transition={{
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.1, // delay entry for better pacing
+    }}
+    className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
+  />
+</AnimatePresence>
+
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
@@ -112,15 +211,17 @@ const DigiTransform = () => {
               <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Alternative innovation to ethical network environmental
-                whiteboard pursue compelling results for premier methods
-                empowerment.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Interactively harness integrated ROI whereas frictionless
-                products. Proactively integrate turnkey meta-services.
-              </p>
+              {current.description
+                .trim()
+                .split("\n\n")
+                .map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-gray-600 leading-relaxed font-medium text-justify mb-4"
+                  >
+                    {para.trim()}
+                  </p>
+                ))}
             </motion.div>
           </AnimatePresence>
 
@@ -132,66 +233,85 @@ const DigiTransform = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {[serviceIcon1, serviceIcon2].map((icon, idx) => (
+            {current.features.map((feat, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 120 }}
                 className="flex items-start gap-4 p-6 bg-gray-100 rounded-md shadow-sm"
               >
-                <img src={icon} alt="" loading="lazy" className="w-14 h-14" />
+                <feat.icon className="w-10 h-10 text-blue-600" />
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                    {idx === 0 ? "Custom Software" : "Mobile Application"}
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                    {feat.title}
                   </h4>
                   <p className="text-base text-gray-600 font-medium leading-7">
-                    Ethical network environmental architect go forward
-                    opportunities credibly implement.
+                    {feat.desc}
                   </p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Benefits */}
+          {/* Benefits Section */}
           <motion.div
             ref={benefitsRef}
             initial={{ opacity: 0, y: 40 }}
             animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-4"
+            className="bg-slate-50 rounded-2xl shadow-sm p-6 md:p-8 space-y-5"
           >
-            <h4 className="text-2xl font-semibold text-gray-800">
-              What are the Benefits?
+            <h4 className="text-2xl md:text-3xl font-semibold text-slate-800">
+              What Are the Benefits?
             </h4>
-            <p className="text-gray-600">
-              Alternative innovation to ethical networks that pursue compelling
-              results.
-            </p>
+            <ul className="space-y-3">
+              {current.benefits.map((benefit, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-slate-700 text-[1rem] md:text-[1.05rem] font-medium leading-relaxed"
+                >
+                  <span className="text-blue-500 mt-1">
+                    {/* Icon (e.g., Lucide Check or Heroicons) */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </motion.div>
 
-        {/* ==== Left Panel (Tabs + Contact Card) ==== */}
+        {/* ==== Left Panel ==== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:w-1/3  space-y-6"
+          className="lg:w-1/3 space-y-6"
         >
-          <div className="bg-gray-100 p-6 rounded-sm ">
-            <h3 className="text-xl font-semibold mb-6 relative inline-block text-gray-800">
-              <span className="border-b-4 border-blue-600 w-1/2 inline-block p-3">
-                Services
-              </span>
+          {/* Tabs */}
+          <div className="bg-gray-100 p-6 rounded-sm">
+            <h3 className="text-xl font-semibold mb-6 text-gray-800">
+              Services
             </h3>
-
             <ul className="space-y-4">
               {services.map((service) => (
                 <motion.li
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 150 }}
                   key={service}
                   onClick={() => setActiveService(service)}
+                  whileTap={{ scale: 0.95 }}
                   className={`relative overflow-hidden group flex items-center justify-between cursor-pointer rounded-sm p-4 transition-all duration-300 ${
                     activeService === service
                       ? "bg-blue-600 text-white"
@@ -202,11 +322,8 @@ const DigiTransform = () => {
                     className="absolute inset-0 bg-blue-600 group-hover:w-full group-hover:opacity-100 transition-all duration-500 ease-in-out left-0 top-0 w-0 opacity-0"
                     aria-hidden="true"
                   ></span>
-                  <div className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:text-white">
-                    <FolderOpen
-                      size={20}
-                      className="text-blue-900 group-hover:text-white"
-                    />
+                  <div className="relative z-10 flex items-center gap-2 group-hover:text-white">
+                    <FolderOpen size={20} />
                     <span className="font-medium">{service}</span>
                   </div>
                   {activeService === service && (
@@ -219,8 +336,8 @@ const DigiTransform = () => {
             </ul>
           </div>
 
-          {/* ==== Contact Card Section (NEW) ==== */}
-          <ContactUs/>
+          {/* Contact Section */}
+          <ContactUs />
         </motion.div>
       </section>
     </div>
