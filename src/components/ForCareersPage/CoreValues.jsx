@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Award, Users, Shield } from "lucide-react";
 
 const CoreValues = () => {
@@ -28,7 +29,7 @@ const CoreValues = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h3 className="text-red-600 text-sm font-medium uppercase tracking-wider mb-4">
+          <h3 className="text-blue-600 text-sm font-medium uppercase tracking-wider mb-4">
             Our Core Values
           </h3>
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 leading-tight">
@@ -41,7 +42,14 @@ const CoreValues = () => {
           {values.map((value, index) => {
             const IconComponent = value.icon;
             return (
-              <div key={index} className="text-center">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="text-center bg-white rounded-lg p-6 shadow hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
+              >
                 {/* Icon Circle */}
                 <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
                   <IconComponent className="w-10 h-10 text-white" />
@@ -56,7 +64,7 @@ const CoreValues = () => {
                 <p className="text-gray-600 leading-relaxed text-sm">
                   {value.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
