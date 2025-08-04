@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+
 const contactData = [
   {
     id: "address",
@@ -12,13 +13,13 @@ const contactData = [
         <p>48 Liverpool Street Freetown, Sierra Leone</p>
       </>
     ),
-    icon: <MapPin size={20} />,
+    icon: <MapPin size={22} strokeWidth={3} />,
   },
   {
     id: "email",
     title: "Send E-mail",
     content: "support@sukutechnologies.com",
-    icon: <Mail size={20} />,
+    icon: <Mail size={22} strokeWidth={3} />,
   },
   {
     id: "phone",
@@ -32,7 +33,7 @@ const contactData = [
         <p>+232 73 860 666</p>
       </>
     ),
-    icon: <Phone size={20} />,
+    icon: <Phone size={22} strokeWidth={3} />,
   },
 ];
 

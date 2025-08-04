@@ -6,14 +6,14 @@ const JoinUs = () => {
     <section className="bg-white py-16 px-4 md:px-8 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
         {/* Smaller diagonal polygon */}
-        <div
+        {/* <div
           className="absolute top-16 right-0 w-[220px] h-[400px] rotate-[25deg] z-10"
           style={{
             background: "#0a58ca",
             clipPath: "polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)",
             borderRadius: "40px",
           }}
-        ></div>
+        ></div> */}
 
         {/* Decorative dots */}
         <div className="absolute bottom-8 right-16 w-20 h-20 bg-[#1a222e] rounded-lg transform rotate-45 z-10"></div>

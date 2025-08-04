@@ -88,7 +88,7 @@ const ContactForm = () => {
                 ></textarea>
                 <button
                   type="submit"
-                  className="bg-[#1a222e] text-white px-6 py-3 rounded shadow-md hover:bg-[#0a58ca] transition w-fit mx-auto"
+                  className="bg-[#0a58ca] hover:bg-[#1a222e] text-white font-semibold py-2 px-4 rounded-full transition duration-300 w-fit"
                 >
                   Submit Message
                 </button>
@@ -99,11 +99,21 @@ const ContactForm = () => {
       </section>
 
       {/* Embedded Google Map */}
-      <div className="w-full h-[450px] pt-6">
+      <div className="w-full flex flex-col md:flex-row pt-6 gap-4 h-[450px]">
+        {/* Ghana Map */}
         <iframe
+          className="w-full md:w-1/2 h-full"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.9945195208966!2d-0.20433782635628453!3d5.567825633533451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9a79b5000001%3A0xf6ce5c4512f75bbf!2sSuku%20Technologies!5e0!3m2!1sen!2sgh!4v1753806781908!5m2!1sen!2sgh"
-          width="100%"
-          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        {/* Sierra Leone Map */}
+        <iframe
+          className="w-full md:w-1/2 h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4294347596015!2d-13.233519!3d8.483035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfeea2fe6f8f70e5%3A0x24c140b92b02e5b6!2s48%20Liverpool%20St%2C%20Freetown%2C%20Sierra%20Leone!5e0!3m2!1sen!2ssl!4v1754303385736!5m2!1sen!2ssl"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
