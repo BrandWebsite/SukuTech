@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState,useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import googlePartner from "../assets/google-partner.webp";
 import mbcPartner from "../assets/MBC.webp";
 import audraPartner from "../assets/audra-partner.webp";
@@ -22,6 +22,46 @@ const fadeIn = {
     y: 0,
     transition: { delay, duration: 0.8, ease: "easeOut" },
   }),
+};
+
+// Custom counter component
+const AnimatedCounter = ({ value }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const [count, setCount] = useState(0);
+
+  // Extract pure number and suffix (e.g. 10K+ -> 10 + "K+")
+  const match = value.match(/^(\d+)([^\d]*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+
+  useEffect(() => {
+    if (inView) {
+      let start = 0;
+      const duration = 1000;
+      const stepTime = 16;
+      const increment = target / (duration / stepTime);
+
+      const interval = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          setCount(target);
+          clearInterval(interval);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, stepTime);
+
+      return () => clearInterval(interval);
+    }
+  }, [inView, target]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
 };
 
 const PartnerText = () => {
@@ -82,7 +122,7 @@ const PartnerText = () => {
               transition={{ type: "spring", stiffness: 150 }}
             >
               <h3 className="text-3xl font-bold text-[#2A8ADE]">
-                {item.value}
+                <AnimatedCounter value={item.value} />
               </h3>
               <p className="text-[#032040] mt-1 text-sm uppercase">
                 {item.label}

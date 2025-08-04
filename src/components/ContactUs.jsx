@@ -24,7 +24,7 @@ const ContactUs = () => {
 
       {/* Email */}
       <span className="text-base sm:text-lg md:text-xl text-white font-medium flex items-center gap-3">
-        <BsEnvelopeFill className="text-blue-800" size={24} />
+        <BsEnvelopeFill className="text-blue-200" size={24} />
         info@sukutechnologies.com
       </span>
 
@@ -32,7 +32,7 @@ const ContactUs = () => {
       <div className="relative group mt-4">
         <motion.button
           whileTap={{ scale: 0.95 }}
-          className="relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base text-white font-medium bg-[#2A8ADE] rounded-sm overflow-hidden"
+          className="relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden"
         >
           <span className="absolute inset-0 bg-blue-950 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0" />
           <Link

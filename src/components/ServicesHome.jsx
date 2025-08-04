@@ -111,7 +111,8 @@ const ServicesHome = () => {
               {service.subsections.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-sm font-medium text-gray-700 group-hover:text-gray-200 transition-all duration-300 hover:text-blue-400 uppercase"
+                  className="flex items-start gap-3 text-sm font-medium text-gray-700 group-hover:text-gray-200 transition-all duration-300 hover:text-blue-200
+                  cursor-pointer hover:font-bold uppercase"
                 >
                   <FaChevronRight className="text-blue-500 mt-1 text-xs group-hover:translate-x-1 transition duration-300" />
                   <span>{item}</span>

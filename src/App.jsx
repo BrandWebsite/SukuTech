@@ -18,6 +18,7 @@ const Careers = lazy(()=>import('./pages/Careers'));
 const DigitalTransform = lazy(()=>import('./pages/DigiTransform'))
 const DigitalVisibility = lazy(()=>import('./pages/DigitalVisibility'))
 const SoftwareSolutions = lazy(()=>import('./pages/SoftwareSolutions'))
+const CRS = lazy(()=>import('./pages/CRS'));
 function App() {
 
   return (
@@ -78,6 +79,7 @@ function App() {
                 path="/software-solutions"
                 element={<SoftwareSolutions />}
               />
+              <Route path='crs' element={<CRS/>} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
             </Route>
