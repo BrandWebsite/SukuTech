@@ -19,6 +19,10 @@ const slideIn = (delay = 0) => ({
   viewport: { once: true },
 });
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 const Footer = () => {
   return (
     <footer className="bg-[#06113C] text-white pt-16 pb-10 relative">
@@ -152,10 +156,7 @@ const Footer = () => {
 
       {/* Scroll to Top */}
       <div className="absolute right-6 bottom-6 animate-[bounce_2s_infinite]">
-        <button
-          onClick={() => window.scrollTo(0, 0)}
-          className="p-2 rounded-full bg-blue-500 hover:bg-white group transition cursor-pointer"
-        >
+        <button className="p-2 rounded-full bg-blue-500 hover:bg-white group transition">
           <ArrowUp className="text-white group-hover:text-blue-500" size={20} />
         </button>
       </div>
