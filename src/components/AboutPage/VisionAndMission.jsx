@@ -1,5 +1,5 @@
 import React from "react";
-import MissionVisionImage from "../../assets/MissionVision.jpg";
+import MissionVisionImage from "../../assets/vision&Missionjpg.jpg";
 import { FaStar, FaUserTie, FaBalanceScale } from "react-icons/fa"; // Icons for Excellence, Leadership, Integrity
 
 const coreValues = [
@@ -7,29 +7,30 @@ const coreValues = [
     icon: <FaStar className="text-5xl text-[#2A8ADE]" />,
     title: "Excellence",
     description:
-      "We strive for the highest quality in everything we do—delivering exceptional results and exceeding expectations through innovation, precision, and continuous improvement.",
+      "We deliver high-quality results by embracing innovation, precision, and continuous improvement.",
   },
   {
     icon: <FaUserTie className="text-5xl text-[#2A8ADE]" />,
     title: "Leadership",
     description:
-      "We lead by example, empowering teams and clients through vision, integrity, and forward-thinking strategies that shape a better digital future.",
+      "We lead with vision and integrity, empowering others to shape a better digital future.",
   },
   {
     icon: <FaBalanceScale className="text-5xl text-[#2A8ADE]" />,
     title: "Integrity",
     description:
-      "We act with honesty, transparency, and accountability, building trust and long-term relationships through ethical business practices.",
+      "We uphold honesty and accountability to build trust through ethical practices.",
   },
 ];
+
 
 const VisionAndMission = () => {
   return (
     <div className="w-full min-h-screen bg-white px-4 py-10">
       {/* Heading */}
       <div className="max-w-6xl mx-auto mb-8">
-        <h2 className="text-sm font-bold text-[#2A8ADE] text-left uppercase tracking-widest">
-          Who We Are
+        <h2 className="text-sm font-bold text-[#2A8ADE] text-left capitalize tracking-widest">
+          Our Driving Purpose
         </h2>
       </div>
 
@@ -82,11 +83,13 @@ const VisionAndMission = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {coreValues.map((value, index) => (
             <div key={index} className="space-y-4">
-              <div className="bg-[#032040]">{value.icon}</div>
+              <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-full bg-[#032040] text-white text-3xl">
+                {value.icon}
+              </div>
               <h4 className="text-lg font-bold text-[#032040] uppercase">
                 {value.title}
               </h4>
-              <p className="text-gray-800 text-sm text-justify px-4">
+              <p className="text-gray-800 text-base font-medium text-justify px-4">
                 {value.description}
               </p>
             </div>

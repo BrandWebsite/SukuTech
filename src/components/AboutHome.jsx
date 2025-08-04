@@ -104,7 +104,7 @@ const AboutHome = () => {
               <div className="relative group">
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-sm overflow-hidden cursor-pointer flex items-center gap-2"
+                  className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer flex items-center gap-2"
                 >
                   <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
                   <span className="relative z-10 flex items-center gap-2">

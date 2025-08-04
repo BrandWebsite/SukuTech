@@ -12,7 +12,7 @@ const GoogleServices = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h3 className="text-sm font-bold text-[#2A8ADE] uppercase tracking-wide">
+        <h3 className="text-sm font-bold text-[#2A8ADE] capitalize tracking-wide">
           Workplace Transformation
         </h3>
       </motion.div>

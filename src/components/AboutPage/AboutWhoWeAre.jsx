@@ -9,7 +9,7 @@ const AboutWhoWeAre = () => {
         {/* Left Content */}
         <div className="md:w-1/2">
           <h4 className="text-sm text-blue-600  capitalize font-bold mb-2">
-            Who we are
+            Our Story, Our Purpose
           </h4>
           <h2 className="text-2xl md:text-4xl font-bold capitalize text-gray-900 mb-4">
             A Legacy of Innovation and Impact
@@ -27,7 +27,7 @@ const AboutWhoWeAre = () => {
           <div className="relative group inline-block">
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-sm overflow-hidden cursor-pointer"
+              className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
             >
               <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
               <span className="relative z-10">Talk To Us</span>

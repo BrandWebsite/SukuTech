@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // ✅ import motion
+import { motion } from "framer-motion";
 import {
   Facebook,
   Twitter,
@@ -46,7 +46,7 @@ const Footer = () => {
           <motion.div className="md:w-[18%]" {...slideIn(0.1)}>
             <h3 className="text-xl font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              {["About Us", "Our Team", "Pricing Plan", "Careers"].map(
+              {["About Us", "Contact", "Pricing Plan", "Careers"].map(
                 (item, idx) => (
                   <li
                     key={idx}
@@ -60,17 +60,14 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Column 3 */}
+          {/* Column 3 - UPDATED SERVICE SECTION */}
           <motion.div className="md:w-[18%]" {...slideIn(0.2)}>
             <h3 className="text-xl font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               {[
-                "Google WorkSpace",
-                "Web Development",
-                "Hosting Services",
-                "Digital Marketing",
-                "Brand Visibility",
-                "Cloud Solutions",
+                "Digital Transformation Solutions",
+                "Software Solutions",
+                "Digital Visibility Services",
               ].map((item, idx) => (
                 <li
                   key={idx}

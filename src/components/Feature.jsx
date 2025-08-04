@@ -62,16 +62,6 @@ const Feature = () => {
 
               {/* Read More + Dots */}
               <div className="relative flex flex-col items-center">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#2A8ADE] group-hover:text-white font-medium cursor-pointer">
-                    Read More
-                  </span>
-
-                  <div className="hidden group-hover:block w-8 h-[2px] bg-white transition-all duration-300"></div>
-                </div>
-
-                <div className="w-16 h-[2px] bg-[#2A8ADE] group-hover:hidden mt-1 transition-all duration-300"></div>
-
                 {/* Dots shown on hover */}
                 <div className="hidden group-hover:flex gap-2 mt-2">
                   <div className="w-2 h-2 rounded-full bg-white"></div>
