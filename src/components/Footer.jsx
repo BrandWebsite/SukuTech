@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Mail,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const slideIn = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -33,30 +34,34 @@ const Footer = () => {
               specializing in software development, digital transformation, and
               brand visibility.
             </p>
-            <button className="mt-6 relative overflow-hidden group bg-blue-500 text-white px-6 py-2 rounded shadow-lg transition-all">
-              <span className="relative z-10 flex items-center gap-2">
-                Discover More <ArrowRight size={16} />
-              </span>
-              <span className="absolute top-0 left-0 w-full h-full bg-[#06113C] group-hover:w-0 group-hover:left-full transition-all duration-500 ease-in-out z-0"></span>
-              <span className="absolute inset-0 border border-blue-500 rounded group-hover:opacity-100 opacity-0 transition-all duration-500 ease-in-out"></span>
-            </button>
+            <Link to="/about">
+              <button className="mt-6 relative overflow-hidden group bg-blue-500 text-white px-6 py-2 rounded shadow-lg transition-all cursor-pointer">
+                <span className="relative z-10 flex items-center gap-2">
+                  Discover More <ArrowRight size={16} />
+                </span>
+                <span className="absolute top-0 left-0 w-full h-full bg-[#06113C] group-hover:w-0 group-hover:left-full transition-all duration-500 ease-in-out z-0"></span>
+                <span className="absolute inset-0 border border-blue-500 rounded group-hover:opacity-100 opacity-0 transition-all duration-500 ease-in-out"></span>
+              </button>
+            </Link>
           </motion.div>
 
           {/* Column 2 */}
           <motion.div className="md:w-[18%]" {...slideIn(0.1)}>
             <h3 className="text-xl font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              {["About Us", "Contact", "Pricing Plan", "Careers"].map(
-                (item, idx) => (
-                  <li
-                    key={idx}
-                    className="transition-all hover:translate-x-2 hover:text-blue-400 cursor-pointer flex items-center gap-2"
-                  >
-                    <CircleArrowRight size={14} className="text-blue-600" />
-                    {item}
-                  </li>
-                )
-              )}
+              {[
+                { name: "About Us", path: "/about" },
+                { name: "Contact", path: "/contact" },
+                { name: "Careers", path: "/careers" },
+              ].map((item, idx) => (
+                <li
+                  key={idx}
+                  className="transition-all hover:translate-x-2 hover:text-blue-400 cursor-pointer flex items-center gap-2"
+                >
+                  <CircleArrowRight size={14} className="text-blue-600" />
+                  <Link to={item.path}> {item.name}</Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -65,16 +70,22 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               {[
-                "Digital Transformation Solutions",
-                "Software Solutions",
-                "Digital Visibility Services",
+                {
+                  name: "Digital Transformation Solutions",
+                  path: "/digital-transformation",
+                },
+                { name: "Software Solutions", path: "/software-solutions" },
+                {
+                  name: "Digital Visibility Services",
+                  path: "/digital-visibility",
+                },
               ].map((item, idx) => (
                 <li
                   key={idx}
                   className="transition-all hover:translate-x-2 hover:text-blue-400 cursor-pointer flex items-center gap-2"
                 >
                   <CircleArrowRight size={14} className="text-blue-600" />
-                  {item}
+                  <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -111,13 +122,29 @@ const Footer = () => {
         >
           <p>© 2025 Sukutech. Designed By Suku Technologies</p>
           <div className="flex gap-4">
-            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-              <span
+            {[
+              {
+                Icon: Facebook,
+                to: "https://web.facebook.com/sukutechnologies",
+              },
+              { Icon: Twitter, to: "https://x.com/sukutech_" },
+              {
+                Icon: Instagram,
+                to: "https://www.instagram.com/sukutechnologies_/",
+              },
+              {
+                Icon: Linkedin,
+                to: "https://www.linkedin.com/company/suku-technologies/posts/",
+              },
+            ].map(({Icon, to}, i) => (
+              <Link
+               to={to}
                 key={i}
+                target="_blank"
                 className="p-2 bg-[#0B1C47] rounded-full hover:bg-blue-500 transition"
               >
                 <Icon size={16} className="text-white" />
-              </span>
+              </Link>
             ))}
           </div>
         </motion.div>
@@ -125,7 +152,10 @@ const Footer = () => {
 
       {/* Scroll to Top */}
       <div className="absolute right-6 bottom-6 animate-[bounce_2s_infinite]">
-        <button className="p-2 rounded-full bg-blue-500 hover:bg-white group transition">
+        <button
+          onClick={() => window.scrollTo(0, 0)}
+          className="p-2 rounded-full bg-blue-500 hover:bg-white group transition cursor-pointer"
+        >
           <ArrowUp className="text-white group-hover:text-blue-500" size={20} />
         </button>
       </div>

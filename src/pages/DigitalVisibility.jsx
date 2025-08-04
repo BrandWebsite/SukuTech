@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
 import digiImage from "../assets/digitalVisibility.jpg";
@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   ClipboardList,
 } from "lucide-react";
+import { Link,useLocation } from "react-router-dom"; // grabs the location id from the Link
 
 const services = [
   "SEO (Search Engine Optimization)",
@@ -126,6 +127,38 @@ const DigitalVisibility = () => {
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
 
+    // created a value that holds the useLocation function
+    const location = useLocation();
+  
+    // When URL hash changes, update the active tab
+  
+  useEffect(() => {
+    const hash = location.hash;
+  
+    if (hash) {
+      // extract the section name from hash
+      const sectionFromHash = hash
+        .replace("#", "")
+        .replace(/-/g, " ")
+        .toLowerCase();
+  
+      // try to match it with one of the services
+      const matchedService = services.find(
+        (service) => service.toLowerCase() === sectionFromHash
+      );
+  
+      if (matchedService) {
+        setActiveService(matchedService);
+  
+        // optional: scroll to it manually
+        const el = document.getElementById(hash.replace("#", ""));
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [location]);
+
   const current = serviceDetails[activeService];
 
   return (
@@ -189,6 +222,7 @@ const DigitalVisibility = () => {
         >
           {/* Dynamic Image */}
           <AnimatePresence mode="wait">
+            <div id={activeService.replace(/\s+/g, "-").toLowerCase()}></div>
             <motion.img
               key={activeService}
               src={current.image}

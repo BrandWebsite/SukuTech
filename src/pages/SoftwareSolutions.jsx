@@ -1,20 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-    FolderOpen,
-    BookOpen,
+  FolderOpen,
+  BookOpen,
   BarChart,
   ClipboardCheck,
   Map,
   Target,
   UserCheck,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 import digiImage from "../assets/softwareSolutions.jpg";
 import serviceImg1 from "../assets/CustomSoftware.jpg";
 import serviceImg2 from "../assets/MobileWeb.jpg";
 import serviceImg3 from "../assets/main&Support.jpg";
 import ContactUs from "../components/contactUs";
+import { useLocation } from "react-router-dom";
 
 const services = [
   "Custom Software Development",
@@ -105,6 +106,9 @@ From scheduled updates to incident resolution, our support services ensure your 
 const SoftwareSolutions = () => {
   const [activeService, setActiveService] = useState(services[0]);
 
+  // created a value the grabs the function of the useLocation
+  const location = useLocation();
+
   const descRef = useRef(null);
   const contentRef = useRef(null);
   const iconsRef = useRef(null);
@@ -114,6 +118,36 @@ const SoftwareSolutions = () => {
   const isContentInView = useInView(contentRef, { once: true });
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
+
+  // When URL hash changes, update the active tab
+
+  useEffect(() => {
+    const hash = location.hash;
+
+    if (hash) {
+      // extract the section name from hash
+      const sectionFromHash = hash
+        .replace("#", "")
+        .replace(/-/g, " ")
+        .toLowerCase();
+
+      // try to match it with one of the services
+      const matchedService = services.find(
+        (service) => service.toLowerCase() === sectionFromHash
+      );
+
+      if (matchedService) {
+        setActiveService(matchedService);
+
+        // optional: scroll to it manually
+        const el = document.getElementById(hash.replace("#", ""));
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [location]);
+
   const current = serviceDetails[activeService];
   return (
     <div className="w-full min-h-screen">
@@ -177,6 +211,7 @@ const SoftwareSolutions = () => {
         >
           {/* Dynamic Image */}
           <AnimatePresence mode="wait">
+            <div id={activeService.replace(/\s+/g, "-").toLowerCase()}></div>
             <motion.img
               key={activeService}
               src={current.image}

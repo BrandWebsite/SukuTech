@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -15,6 +15,7 @@ import serviceImg1 from "../assets/Analyses.jpg";
 import serviceImg2 from "../assets/DigiStrategy.jpg";
 import serviceImg3 from "../assets/changeManage.jpg";
 import ContactUs from "../components/contactUs";
+import { Link,useLocation } from "react-router-dom"; // grabs the location id from the Link
 
 const services = [
   "Analysis & Consulting",
@@ -117,6 +118,39 @@ const DigiTransform = () => {
   const isIconsInView = useInView(iconsRef, { once: true });
   const isBenefitsInView = useInView(benefitsRef, { once: true });
 
+  // created a value that holds the useLocation function
+  const location = useLocation();
+
+  // When URL hash changes, update the active tab
+
+useEffect(() => {
+  const hash = location.hash;
+
+  if (hash) {
+    // extract the section name from hash
+    const sectionFromHash = hash
+      .replace("#", "")
+      .replace(/-/g, " ")
+      .toLowerCase();
+
+    // try to match it with one of the services
+    const matchedService = services.find(
+      (service) => service.toLowerCase() === sectionFromHash
+    );
+
+    if (matchedService) {
+      setActiveService(matchedService);
+
+      // optional: scroll to it manually
+      const el = document.getElementById(hash.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
+}, [location]);
+
+
   const current = serviceDetails[activeService];
 
   return (
@@ -181,22 +215,22 @@ const DigiTransform = () => {
         >
           {/* Dynamic Image */}
           <AnimatePresence mode="wait">
-  <motion.img
-    key={activeService}
-    src={current.image}
-    alt={activeService}
-    initial={{ opacity: 0, scale: 0.95, x: 60 }}
-    animate={{ opacity: 1, scale: 1, x: 0 }}
-    exit={{ opacity: 0, scale: 0.95, x: -30 }}
-    transition={{
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1],
-      delay: 0.1, // delay entry for better pacing
-    }}
-    className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
-  />
-</AnimatePresence>
-
+            <div id={activeService.replace(/\s+/g, "-").toLowerCase()}></div>
+            <motion.img
+              key={activeService}
+              src={current.image}
+              alt={activeService}
+              initial={{ opacity: 0, scale: 0.95, x: 60 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.95, x: -30 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.1, // delay entry for better pacing
+              }}
+              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
+            />
+          </AnimatePresence>
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">

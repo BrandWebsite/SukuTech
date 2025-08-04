@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import contactImage from "../assets/contactUs.jpg";
+import { Link } from "react-router-dom";
 
 const ContactBanner = () => {
   return (
@@ -45,13 +46,15 @@ const ContactBanner = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
+          <Link to='/contact'>
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="relative px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer "
-          >
+            >
             <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
             <span className="relative z-10">Contact Us</span>
           </motion.button>
+            </Link>
         </motion.div>
       </div>
     </div>

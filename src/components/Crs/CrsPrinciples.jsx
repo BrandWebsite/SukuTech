@@ -8,6 +8,7 @@ import {
   FaLock,
   FaUniversalAccess,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const principles = [
   {
@@ -63,13 +64,15 @@ const CrsPrinciples = () => {
           transition={{ duration: 0.9, delay: 0.4 }}
           className="hidden md:block relative group"
         >
+          <Link to='/contact'>
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
-          >
+            >
             <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
             <span className="relative z-10">Join Us</span>
           </motion.button>
+            </Link>
         </motion.div>
 
         {/* Heading */}

@@ -131,13 +131,15 @@ const NavBar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block relative group">
+            <NavLink to='/contact'>
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
-          >
+            >
             <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
             <span className="relative z-10">Get in touch</span>
           </motion.button>
+            </NavLink>
         </div>
 
         {/* Mobile Toggle */}
@@ -208,9 +210,11 @@ const NavBar = () => {
               </li>
             ))}
             <li>
+              <NavLink to='/contact'>
               <button className="w-full bg-[#2A8ADE] text-white py-2 rounded-lg hover:bg-[#032040] transition cursor-pointer">
-                Get a Quote
+                Get In Touch
               </button>
+              </NavLink>
             </li>
           </ul>
         </div>

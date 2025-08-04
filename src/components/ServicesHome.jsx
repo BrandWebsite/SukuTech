@@ -7,7 +7,7 @@ import {
   FaChartLine,
   FaChevronRight,
 } from "react-icons/fa";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -20,7 +20,7 @@ const services = [
     subsections: [
       "Analysis and Consulting",
       "Digital Strategy Development",
-      "Change Management and Training",
+      "Change Management & Training",
       "Scaling and Support",
     ],
   },
@@ -106,17 +106,20 @@ const ServicesHome = () => {
               {service.description}
             </p>
             {/* Subsections */}
-                  {FaChevronRight} 
+            {FaChevronRight}
             <ul className="relative z-10 mt-4 space-y-3">
               {service.subsections.map((item, i) => (
-                <li
+                <Link
+                  to={`${service.link}#${item
+                    .replace(/\s+/g, "-")
+                    .toLowerCase()}`}
                   key={i}
                   className="flex items-start gap-3 text-sm font-medium text-gray-700 group-hover:text-gray-200 transition-all duration-300 hover:text-blue-200
-                  cursor-pointer hover:font-bold uppercase"
+  cursor-pointer hover:font-bold uppercase"
                 >
                   <FaChevronRight className="text-blue-500 mt-1 text-xs group-hover:translate-x-1 transition duration-300" />
                   <span>{item}</span>
-                </li>
+                </Link>
               ))}
             </ul>
             {/* Read More with Link */}

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import aboutShapeIcon from "../assets/about-shape2.png";
 import ladyImage from "../assets/ladyImage.jpg";
+import { NavLink } from "react-router-dom";
 
 const AboutHome = () => {
   return (
@@ -102,15 +103,17 @@ const AboutHome = () => {
             >
               {/* Button with hover effect */}
               <div className="relative group">
+                <NavLink to='/about'>
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer flex items-center gap-2"
-                >
+                  >
                   <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
                   <span className="relative z-10 flex items-center gap-2">
                     Read More
                   </span>
                 </motion.button>
+                  </NavLink>
               </div>
 
               {/* Swinging Shape Icon */}
