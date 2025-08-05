@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import {
   Facebook,
   Linkedin,
@@ -17,6 +19,33 @@ const IconWrapper = ({ children }) => (
 );
 
 const ContactForm = () => {
+  // handling my form emails from email.js
+  const [loading, setLoading] = useState(false);
+  const form = useRef();
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Start loading when form is submitted
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_5za6jht",
+        "template_v7upf3q",
+        form.current,
+        {
+          publicKey: "06TI82nSkro1UpF8E",
+        }
+      );
+      console.log("SUCCESS!", result);
+      toast.success("Message sent successfully!");
+      form.current.reset(); // Reset form after successful submission
+    } catch (error) {
+      console.error("FAILED...", error.text);
+      toast.success("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false); // Stop loading after response
+    }
+  };
   return (
     <>
       <section className="bg-[#f1f6fe] py-12">
@@ -60,37 +89,52 @@ const ContactForm = () => {
                 Get In Touch With Your Nearest Local Business Sales Executive
               </h2>
 
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                ref={form}
+                onSubmit={sendEmail}
+              >
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name*"
                   className="p-3 border border-gray-300 rounded focus:outline-[#0a58ca]"
+                  required
                 />
-                <input
+                {/* <input
                   type="text"
                   placeholder="Your Number"
                   className="p-3 border border-gray-300 rounded focus:outline-[#0a58ca]"
-                />
+                /> */}
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your E-Mail*"
                   className="p-3 border border-gray-300 rounded focus:outline-[#0a58ca]"
+                  required
                 />
                 <input
                   type="text"
-                  placeholder="Your Address"
+                  placeholder="Subject"
+                  name="title"
                   className="p-3 border border-gray-300 rounded focus:outline-[#0a58ca]"
+                  required
                 />
                 <textarea
                   placeholder="Write A Message..."
                   rows="4"
+                  name="message"
                   className="p-3 border border-gray-300 rounded col-span-1 md:col-span-2 focus:outline-[#0a58ca]"
+                  required
                 ></textarea>
                 <button
                   type="submit"
-                  className="bg-[#0a58ca] hover:bg-[#1a222e] text-white font-semibold py-2 px-4 rounded-full transition duration-300 w-fit"
+                  className={`bg-[#0a58ca] hover:bg-[#1a222e] text-white font-semibold py-2 px-4 rounded-full transition duration-300 w-fit ${
+                    loading ? "opacity-70 cursor-not-allowed" : ""
+                  } `}
+                  disabled={loading}
                 >
-                  Submit Message
+                  {loading ? "Submitting...." : "Submit Message"}
                 </button>
               </form>
             </div>

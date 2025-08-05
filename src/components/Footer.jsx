@@ -128,10 +128,10 @@ const Footer = () => {
       </div>
 
       {/* Scroll to Top */}
-      <div className="absolute right-6 bottom-6 animate-[bounce_2s_infinite]">
+      <div className="absolute right-6 bottom-6 animate-[bounce_2s_infinite] cursor-pointer">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="p-2 rounded-full bg-blue-500 hover:bg-white group transition"
+          className="p-2 rounded-full bg-blue-500 hover:bg-white group transition "
         >
           <ArrowUp className="text-white group-hover:text-blue-500" size={20} />
         </button>
