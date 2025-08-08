@@ -56,7 +56,7 @@ const AboutWhoWeAre = () => {
         <h3 className="text-2xl md:text-4xl font-bold capitalize text-gray-900 mb-4">
           Strategic Collaborations Built on Trust and Innovation
         </h3>
-        <p className="text-gray-700 font-medium text-base  leading-relaxed ">
+        <p className="text-gray-700 text-justify font-medium text-base  leading-relaxed ">
           At Suku Technologies, we are committed to building long-term,
           strategic partnerships rooted in transparency, agility, and
           collaboration. Our client-first approach allows us to tailor flexible

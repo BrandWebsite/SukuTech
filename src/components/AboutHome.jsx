@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const AboutHome = () => {
   return (
     <div className="w-full min-h-screen bg-white">
-      <div className="pt-[1000px] md:pt-[400px] px-6 md:px-20 pb-20">
+      <div className="pt-[1100px] md:pt-[400px] px-6 md:px-20 pb-20">
         <div className="flex flex-col md:flex-row items-start justify-between gap-12">
           {/* Left Div (Image Section with Slide In) */}
           <motion.div

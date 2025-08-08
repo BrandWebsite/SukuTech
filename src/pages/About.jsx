@@ -5,6 +5,8 @@ import AboutWhoWeAre from "../components/AboutPage/AboutWhoWeAre";
 import VisionAndMission from "../components/AboutPage/VisionAndMission";
 import Ceo from "../components/AboutPage/Ceo";
 import ContactBanner from "../components/ContactBanner";
+import { Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const pageVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -44,23 +46,33 @@ const About = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-blue-800/35 flex items-center justify-center">
-          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">
+        <div
+          className="
+      absolute inset-0 bg-blue-800/35 
+      flex flex-col items-center justify-center 
+      md:items-start 
+      px-0 md:px-12 lg:px-20
+    "
+        >
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
             About Us
           </h1>
-        </div>
 
-        {/* Bottom Arch */}
-        <svg
-          className="absolute bottom-0 left-0 w-full"
-          viewBox="0 0 1440 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="white"
-            d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z"
-          />
-        </svg>
+          {/* Breadcrumb box */}
+          <div className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md">
+            <Home size={16} className="text-blue-600" />
+
+            <Link
+              to="/"
+              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            >
+              Home
+            </Link>
+
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">About Us</span>
+          </div>
+        </div>
       </div>
 
       {/* Content Section */}

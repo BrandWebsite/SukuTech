@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -8,14 +8,14 @@ import {
   BookOpen,
   Map,
   UserCheck,
-  ClipboardCheck,
+  ClipboardCheck,Home
 } from "lucide-react";
 import digiImage from "../assets/digitalTransfrom.jpg";
 import serviceImg1 from "../assets/Analyses.jpg";
 import serviceImg2 from "../assets/DigiStrategy.jpg";
 import serviceImg3 from "../assets/changeManage.jpg";
 import ContactUs from "../components/contactUs";
-import { Link,useLocation } from "react-router-dom"; // grabs the location id from the Link
+import { Link, useLocation } from "react-router-dom"; // grabs the location id from the Link
 
 const services = [
   "Analysis & Consulting",
@@ -103,8 +103,6 @@ We focus on building an adaptive culture where continuous learning and change ar
   },
 };
 
-
-
 const DigiTransform = () => {
   const [activeService, setActiveService] = useState(services[0]);
 
@@ -123,33 +121,32 @@ const DigiTransform = () => {
 
   // When URL hash changes, update the active tab
 
-useEffect(() => {
-  const hash = location.hash;
+  useEffect(() => {
+    const hash = location.hash;
 
-  if (hash) {
-    // extract the section name from hash
-    const sectionFromHash = hash
-      .replace("#", "")
-      .replace(/-/g, " ")
-      .toLowerCase();
+    if (hash) {
+      // extract the section name from hash
+      const sectionFromHash = hash
+        .replace("#", "")
+        .replace(/-/g, " ")
+        .toLowerCase();
 
-    // try to match it with one of the services
-    const matchedService = services.find(
-      (service) => service.toLowerCase() === sectionFromHash
-    );
+      // try to match it with one of the services
+      const matchedService = services.find(
+        (service) => service.toLowerCase() === sectionFromHash
+      );
 
-    if (matchedService) {
-      setActiveService(matchedService);
+      if (matchedService) {
+        setActiveService(matchedService);
 
-      // optional: scroll to it manually
-      const el = document.getElementById(hash.replace("#", ""));
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        // optional: scroll to it manually
+        const el = document.getElementById(hash.replace("#", ""));
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
-  }
-}, [location]);
-
+  }, [location]);
 
   const current = serviceDetails[activeService];
 
@@ -162,26 +159,47 @@ useEffect(() => {
           alt="Digital Transformation"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-blue-800/55 flex items-center justify-center">
+        <div
+          className="
+      absolute inset-0 bg-blue-800/65 
+      flex flex-col items-center justify-center 
+      md:items-start 
+      px-0 md:px-12 lg:px-20
+    "
+        >
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold text-center px-4"
+            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
             Digital Transformation Solutions
           </motion.h1>
+
+          {/* Breadcrumb box */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
+            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+          >
+            <Home size={16} className="text-blue-600" />
+
+            <Link
+              to="/"
+              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            >
+              Home
+            </Link>
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">Service</span>
+
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">
+              Digital Transformation Solutions
+            </span>
+          </motion.div>
         </div>
-        <svg
-          className="absolute bottom-0 left-0 w-full drop-shadow-md"
-          viewBox="0 0 1440 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="white"
-            d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z"
-          />
-        </svg>
       </div>
 
       {/* ==== Description Section ==== */}

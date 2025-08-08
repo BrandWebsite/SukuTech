@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   FolderOpen,
@@ -9,13 +9,14 @@ import {
   Target,
   UserCheck,
   ArrowRight,
+  Home,
 } from "lucide-react";
 import digiImage from "../assets/softwareSolutions.jpg";
 import serviceImg1 from "../assets/CustomSoftware.jpg";
 import serviceImg2 from "../assets/MobileWeb.jpg";
 import serviceImg3 from "../assets/main&Support.jpg";
 import ContactUs from "../components/contactUs";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const services = [
   "Custom Software Development",
@@ -159,26 +160,46 @@ const SoftwareSolutions = () => {
           loading="lazy"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-blue-800/55 flex items-center justify-center">
+
+        <div
+          className="
+      absolute inset-0 bg-blue-800/65 
+      flex flex-col items-center justify-center 
+      md:items-start 
+      px-0 md:px-12 lg:px-20
+    "
+        >
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold text-center px-4"
+            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
             Software Solutions
           </motion.h1>
+
+          {/* Breadcrumb box */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
+            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+          >
+            <Home size={16} className="text-blue-600" />
+
+            <Link
+              to="/"
+              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            >
+              Home
+            </Link>
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">Service</span>
+
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">Software Solutions</span>
+          </motion.div>
         </div>
-        <svg
-          className="absolute bottom-0 left-0 w-full drop-shadow-md"
-          viewBox="0 0 1440 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="white"
-            d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z"
-          />
-        </svg>
       </div>
 
       {/* Description Section */}
