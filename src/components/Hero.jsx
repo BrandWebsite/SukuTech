@@ -39,14 +39,15 @@ const Hero = () => {
           className="text-white space-y-5"
         >
           <h2 className="text-sm uppercase tracking-widest text-[#2A8ADE] font-semibold">
-            An IT Solution Agency
+            Empowering Businesses Worldwide
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Business Innovation With IT Expert
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center mr-3">
+            Powering Growth with Smart IT Solutions
           </h1>
-          <p className="text-lg text-gray-200 max-w-lg">
-            Professionally optimize interdependent intellectual interoperable
-            connect best practices. Progressively fabricate done.
+          <p className="text-lg text-gray-200 max-w-lg text-justify">
+            We partner with forward-thinking brands across the globe to deliver
+            technology-driven solutions that spark growth, boost efficiency, and
+            future-proof businesses in the digital era.
           </p>
 
           {/* CTA Buttons */}

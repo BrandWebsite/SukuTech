@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
-import CrsImage from '../assets/CrsBanner.jpg'
-import CrsPrinciples from '../components/Crs/CrsPrinciples';
-import CrsReport from '../components/Crs/CrsReport';
+import CrsImage from "../assets/CrsBanner.jpg";
+import CrsPrinciples from "../components/Crs/CrsPrinciples";
+import CrsReport from "../components/Crs/CrsReport";
+import { Link } from "react-router-dom";
+import { Home } from "lucide-react";
 
 const pageVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -42,23 +44,33 @@ const CRS = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-blue-800/35 flex items-center justify-center">
+        <div
+          className="
+      absolute inset-0 bg-blue-800/65 
+      flex flex-col items-center justify-center 
+      md:items-start 
+      px-0 md:px-12 lg:px-20
+    "
+        >
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">
             Corporate Social Responsibility (CSR)
           </h1>
-        </div>
 
-        {/* Bottom Arch */}
-        <svg
-          className="absolute bottom-0 left-0 w-full"
-          viewBox="0 0 1440 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="white"
-            d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z"
-          />
-        </svg>
+          {/* Breadcrumb box */}
+          <div className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md mt-5">
+            <Home size={16} className="text-blue-600" />
+
+            <Link
+              to="/"
+              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            >
+              Home
+            </Link>
+
+            <span className="text-white">→</span>
+            <span className="text-sm text-gray-300">CSR</span>
+          </div>
+        </div>
       </div>
 
       {/* ==== Description ==== */}
@@ -80,10 +92,10 @@ const CRS = () => {
       </motion.div>
 
       {/* Content Section */}
-      <CrsPrinciples/>
-      <CrsReport/>
+      <CrsPrinciples />
+      <CrsReport />
     </motion.div>
   );
-}
+};
 
-export default CRS
+export default CRS;
