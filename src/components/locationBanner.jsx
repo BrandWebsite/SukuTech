@@ -20,7 +20,7 @@ const LocationBanner = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <FaMapMarkerAlt className="text-white" /> 21 King Tackie Avenue, North
+          <FaMapMarkerAlt className="text-white" /> 21 King tackie Avenue, North
           Ridge, Ghana
         </span>
         <span className="flex items-center gap-2">
