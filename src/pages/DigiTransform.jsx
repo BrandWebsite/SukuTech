@@ -14,7 +14,7 @@ import digiImage from "../assets/digitalTransfrom.jpg";
 import serviceImg1 from "../assets/Analyses.jpg";
 import serviceImg2 from "../assets/DigiStrategy.jpg";
 import serviceImg3 from "../assets/changeManage.jpg";
-import ContactUs from "../components/contactUs";
+import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom"; // grabs the location id from the Link
 
 const services = [
