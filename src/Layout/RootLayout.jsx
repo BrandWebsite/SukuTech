@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import LocationBanner from "../components/LocationBanner";
-import Navbar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 const RootLayout = () => {
@@ -11,7 +11,7 @@ const RootLayout = () => {
       <LocationBanner />
 
       {/* Sticky NavBar handled inside Navbar component */}
-      <Navbar />
+      <NavBar />
 
       {/* Page Content */}
       <main className="flex-grow">
