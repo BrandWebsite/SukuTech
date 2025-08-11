@@ -6,7 +6,7 @@ import serviceImg1 from "../assets/SEO.jpg";
 import serviceImg2 from "../assets/SocialMarketing.jpg";
 import serviceImg3 from "../assets/WebDesign.jpg";
 import serviceImg4 from "../assets/WebHost.jpg";
-import ContactUs from "../components/contactUs"; 
+import ContactUs from "../components/ContactUs"; 
 import {
   ArrowRight,
   FolderOpen,

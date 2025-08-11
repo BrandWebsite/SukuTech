@@ -15,7 +15,7 @@ import digiImage from "../assets/softwareSolutions.jpg";
 import serviceImg1 from "../assets/CustomSoftware.jpg";
 import serviceImg2 from "../assets/MobileWeb.jpg";
 import serviceImg3 from "../assets/main&Support.jpg";
-import ContactUs from "../components/contactUs";
+import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom";
 
 const services = [
