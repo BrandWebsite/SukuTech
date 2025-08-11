@@ -82,7 +82,7 @@ const ContactForm = () => {
 
             {/* Right Side: Form */}
             <div className="w-full md:w-2/3">
-              <p className="text-sm text-[#0a58ca] font-medium mb-2">
+              <p className="text-sm text-[#0a58ca] font-bold mb-2">
                 Have Any Consultation...?
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">

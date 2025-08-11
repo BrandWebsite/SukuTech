@@ -60,15 +60,19 @@ const JobList = () => {
     setFilters({ ...filters, [field]: value });
   };
 
+  const handleViewMore = (jobTitle) => {
+    console.log(`View more about: ${jobTitle}`);
+    // Here you can navigate to a job details page or open a modal
+  };
+
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold text-center text-blue-900 mb-4">
-        Available Job Opportunities at{" "}
-        <span className="text-blue-700">Suku Technologies</span>
-      </h1>
-      <p className="text-center mb-10 text-lg">
-        Join Suku Technologies and get new opportunities for your career growth.
-      </p>
+      <h3 className="text-sm text-blue-600 text-center capitalize font-bold mb-2">
+        Join Us
+      </h3>
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+        Available Job Opportunities at Suku Technologies.
+      </h2>
 
       <JobFilters onFilterChange={handleFilterChange} />
 
@@ -79,6 +83,7 @@ const JobList = () => {
             title={job.title}
             category={job.category}
             location={job.location}
+            onViewMore={() => handleViewMore(job.title)}
           />
         ))}
       </div>

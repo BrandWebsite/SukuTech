@@ -23,8 +23,8 @@ const JoinUs = () => {
           {/* Text Content */}
           <div className="flex-1 max-w-lg mb-8 lg:mb-0">
             <h2 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-[#1a222e]">Want to </span>
-              <span className="text-[#0a58ca]">join us?</span>
+              <span className="text-gray-800">Want to </span>
+              <span className="text-blue-600"> join us?</span>
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-md">
@@ -33,9 +33,12 @@ const JoinUs = () => {
               inspiring workplace? You have come to the right place!
             </p>
 
-            <button className="bg-[#0a58ca] hover:bg-[#1a222e] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            <a
+              href="#job-list"
+              className="bg-blue-600 hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block"
+            >
               Discover More
-            </button>
+            </a>
           </div>
 
           {/* Image */}

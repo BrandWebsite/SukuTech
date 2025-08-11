@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Imp1 from "../../assets/imp1.jpg";
-import Imp2 from "../../assets/Imp2.jpg";
-import Imp3 from "../../assets/Imp3.jpg";
+import Imp2 from "../../assets/imp2.jpg";
+import Imp3 from "../../assets/imp3.jpg";
 
 const Impressions = () => {
   const images = [
-    { id: 1, src: Imp1, alt: "Conference meeting with colleagues" },
+    { id: 1, src: Imp1, alt: "End-of-Year Celebration" },
     { id: 2, src: Imp2, alt: "Team event and networking" },
     { id: 3, src: Imp3, alt: "Company gathering and celebration" },
   ];
@@ -30,22 +30,29 @@ const Impressions = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h3 className="text-blue-600 text-sm font-medium uppercase tracking-wider mb-4">
-            Some Impressions
+          <h3 className="text-sm text-blue-600 text-center font-bold mb-2">
+            More Than Work
           </h3>
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 leading-tight">
-            Not only a place for work
-          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+            Building connections, memories, and impact together
+          </h2>
         </div>
 
         {/* Carousel */}
         <div className="relative overflow-hidden rounded-lg">
-          <div className="w-full h-72 sm:h-96 relative">
+          <div className="w-full h-72 sm:h-96 relative group">
             <img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
-              className="w-full h-full object-cover rounded-lg transition-all duration-500 ease-in-out"
+              className="w-full h-full object-cover rounded-lg transition-all duration-500 ease-in-out brightness-50 group-hover:brightness-100"
             />
+
+            {/* Text Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-white text-lg sm:text-xl font-semibold px-4 text-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                {images[currentIndex].alt}
+              </p>
+            </div>
 
             {/* Arrows */}
             <button

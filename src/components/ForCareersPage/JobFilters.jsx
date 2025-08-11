@@ -1,34 +1,39 @@
 import React from "react";
 
 const JobFilters = ({ onFilterChange }) => {
+  const selectClasses =
+    "w-[48%] sm:w-auto text-gray-600 text-sm sm:text-base rounded-lg px-3 py-2 shadow-md focus:outline-none focus:ring-0 focus:border-transparent bg-white border border-gray-100 appearance-none";
+
   return (
-    <div className="flex flex-wrap gap-4 justify-center mb-8">
+    <div className="flex flex-wrap gap-3 justify-center mb-8">
       <select
-        className="border border-gray-300 rounded px-4 py-2"
+        className={selectClasses}
         onChange={(e) => onFilterChange("category", e.target.value)}
       >
-        <option value="">All Job Category</option>
-        <option value="Development">Development</option>
-        <option value="Operations">Operations</option>
-        <option value="Sales and Marketing">Sales and Marketing</option>
-        <option value="Graphic Design">Graphic Design</option>
+        <option>All Job Category</option>
+        <option>Development</option>
+        <option>Operations</option>
+        <option>Sales and Marketing</option>
+        <option>Graphic Design</option>
       </select>
+
       <select
-        className="border border-gray-300 rounded px-4 py-2"
+        className={selectClasses}
         onChange={(e) => onFilterChange("type", e.target.value)}
       >
-        <option value="">All Job Type</option>
-        <option value="Full time">Full time</option>
-        <option value="Internship">Internship</option>
-        <option value="Contract">Contract</option>
+        <option>All Job Type</option>
+        <option>Full time</option>
+        <option>Internship</option>
+        <option>Contract</option>
       </select>
+
       <select
-        className="border border-gray-300 rounded px-4 py-2"
+        className={selectClasses}
         onChange={(e) => onFilterChange("location", e.target.value)}
       >
-        <option value="">All Job Location</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Sierra Leone">Sierra Leone</option>
+        <option>All Job Location</option>
+        <option>Ghana</option>
+        <option>Sierra Leone</option>
       </select>
     </div>
   );
