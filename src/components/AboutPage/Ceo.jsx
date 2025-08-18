@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ceoImage from "../../assets/tsonam.jpg";
+import ceoImage from "../../assets/CEO image.png";
 
 const Ceo = () => {
   const defaultParagraph = `At Suku Technologies, we are driven by Excellence, Leadership, and Integrity. These values guide every project we undertake and define our commitment to client satisfaction. 
@@ -24,7 +24,7 @@ By embedding security expertise within agile workflows, we ensure robust safegua
   };
 
   return (
-    <div className="w-full bg-[#f9f9f9] text-white py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 overflow-hidden">
+    <div className="w-full h-[550px] bg-[#f9f9f9] text-white  py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 overflow-hidden">
       {/* Image Section */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -35,8 +35,8 @@ By embedding security expertise within agile workflows, we ensure robust safegua
         <motion.img
           src={ceoImage}
           alt="Tsonam Akpeloo"
-          className="rounded-lg w-[32rem] h-[40rem] object-cover border-4 border-white shadow-lg"
-          animate={{ y: [0, -10, 0, 10, 0] }}
+          className="rounded-lg w-[32rem] h-[35rem] object-cover"
+          // animate={{ y: [0, -10, 0, 10, 0] }}
           transition={{
             duration: 8,
             repeat: Infinity,
@@ -50,7 +50,7 @@ By embedding security expertise within agile workflows, we ensure robust safegua
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-        className="w-full md:w-1/2 space-y-6"
+        className="w-full md:w-[43%] space-y-6"
       >
         {/* Heading */}
         <h2 className="text-3xl font-bold text-[#032040]">
@@ -87,7 +87,7 @@ By embedding security expertise within agile workflows, we ensure robust safegua
         </div>
 
         {/* Paragraph */}
-        <p className="text-[#032040] text-base leading-relaxed font-medium text-justify whitespace-pre-line">
+        <p className="text-[#032040] text-[15px] leading-relaxed font-medium text-justify whitespace-pre-line">
           {renderParagraph()}
         </p>
       </motion.div>

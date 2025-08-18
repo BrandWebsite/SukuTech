@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ContactBanner = () => {
   return (
-    <div className="relative w-full h-[45vh] md:h-[60vh] lg:h-[70vh]">
+    <div className="relative w-full h-[45vh] md:h-[60vh] lg:h-[70vh] mt-10">
       {/* Background Image */}
       <img
         src={contactImage}
