@@ -11,7 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from '../assets/LOGO.png'
+import logo from '../assets/LOGO.webp'
 
 const slideIn = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -19,10 +19,6 @@ const slideIn = (delay = 0) => ({
   transition: { duration: 0.6, ease: "easeOut", delay },
   viewport: { once: true },
 });
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
 
 const Footer = () => {
   return (

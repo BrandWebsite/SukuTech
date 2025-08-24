@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import contactImage from "../assets/contactUs.jpg";
+import contactImage from "../assets/contactUs.webp";
 import { Link } from "react-router-dom";
 
 const ContactBanner = () => {
@@ -14,7 +14,7 @@ const ContactBanner = () => {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-blue-950/30 z-10"></div>
+      <div className="absolute inset-0 bg-blue-950/40 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center text-white">
@@ -23,7 +23,7 @@ const ContactBanner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="w-full max-w-screen-xl mx-auto px-4 whitespace-nowrap text-balance text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight"
+          className="w-full max-w-screen-xl mx-auto px-4 mb-4 text-balance text-[24px] sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight"
         >
           Together, We Build Better Business
         </motion.h1>
@@ -46,15 +46,15 @@ const ContactBanner = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Link to='/contact'>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="relative px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer "
+          <Link to="/contact">
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="relative px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer "
             >
-            <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
-            <span className="relative z-10">Contact Us</span>
-          </motion.button>
-            </Link>
+              <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
+              <span className="relative z-10">Contact Us</span>
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </div>

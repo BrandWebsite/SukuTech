@@ -11,10 +11,10 @@ import {
   ArrowRight,
   Home,
 } from "lucide-react";
-import digiImage from "../assets/softwareSolutions.jpg";
-import serviceImg1 from "../assets/CSD.png";
-import serviceImg2 from "../assets/Web & Mobile Application Development.png";
-import serviceImg3 from "../assets/Maintenance & Support Services.png";
+import digiImage from "../assets/softwareSolutions.webp";
+import serviceImg1 from "../assets/CSD.webp";
+import serviceImg2 from "../assets/Web & Mobile Application Development.webp";
+import serviceImg3 from "../assets/Maintenance & Support Services.webp";
 import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom";
 
@@ -259,7 +259,7 @@ const SoftwareSolutions = () => {
               transition={{ type: "spring", stiffness: 100 }}
               className="space-y-5"
             >
-              <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h4 className="text-2xl text-center md:text-left md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
               {current.description
@@ -365,7 +365,13 @@ const SoftwareSolutions = () => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 150 }}
                   key={service}
-                  onClick={() => setActiveService(service)}
+                  onClick={() => {
+                    setActiveService(service);
+                    // scroll to top when a tab is clicked
+                    if (window.innerWidth < 760) {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                   className={`relative overflow-hidden group flex items-center justify-between cursor-pointer rounded-sm p-4 transition-all duration-300 ${
                     activeService === service
                       ? "bg-blue-600 text-white"

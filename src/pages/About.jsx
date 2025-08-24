@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import aboutBannerImage from "../assets/about-bg.png";
+import aboutBannerImage from "../assets/about-bg.webp";
 import AboutWhoWeAre from "../components/AboutPage/AboutWhoWeAre";
 import VisionAndMission from "../components/AboutPage/VisionAndMission";
 import Ceo from "../components/AboutPage/Ceo";

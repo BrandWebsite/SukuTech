@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Icon from "../assets/LOGO.png";
+import Icon from "../assets/LOGO.webp";
 import { BarLoader } from "react-spinners";
 
 const PageLoading = ({ onFinish }) => {

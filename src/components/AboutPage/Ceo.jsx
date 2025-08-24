@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ceoImage from "../../assets/CEO image.png";
+import ceoImage from "../../assets/CEO image.webp";
 
 const Ceo = () => {
   const defaultParagraph = `At Suku Technologies, we are driven by Excellence, Leadership, and Integrity. These values guide every project we undertake and define our commitment to client satisfaction. 

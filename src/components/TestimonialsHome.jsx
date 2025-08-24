@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import VtfImage from "../assets/testimonial1.png";
-import AmanexImage from "../assets/testimonial.png"
+import VtfImage from "../assets/testimonial1.webp";
+import AmanexImage from "../assets/testimonial.webp"
 
 const testimonials = [
   {

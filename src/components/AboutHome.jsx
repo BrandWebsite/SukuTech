@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutShapeIcon from "../assets/about-shape2.png";
-import ladyImage from "../assets/Reliable Software Partner2.png";
+import ladyImage from "../assets/Reliable Software Partner2.webp";
 import { NavLink } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 
 const AboutHome = () => {
   return (
     <div className="w-full min-h-screen bg-white">
-      <div className="pt-[1100px] md:pt-[400px] px-6 md:px-20 pb-20">
+      <div className="pt-[1150px] md:pt-[400px] px-6 md:px-20 pb-20">
         <div className="flex flex-col md:flex-row items-start justify-between gap-12">
           {/* Left Div (Image Section with Slide In) */}
           <motion.div
@@ -64,20 +64,7 @@ const AboutHome = () => {
               leveraging cutting-edge technology to optimize operations, enhance
               customer experiences, and drive growth.
             </motion.p>
-
-            {/* Animated Loader Line */}
-            {/* <div className="relative w-full h-[1.7px] bg-gray-300 overflow-hidden mb-12">
-              <motion.div
-                className="absolute top-0 left-0 h-full w-[10%] bg-[#2A8ADE]"
-                animate={{ x: ["0%", "90%"] }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "linear",
-                }}
-              />
-            </div> */}
+           
 
             <div className="w-full md:w-[550px] mx-auto">
               <BarLoader width={"100%"} height={2} color="#4b4bf7" />

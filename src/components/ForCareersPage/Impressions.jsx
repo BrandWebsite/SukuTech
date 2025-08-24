@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Imp1 from "../../assets/imp1.jpg";
-import Imp2 from "../../assets/imp2.jpg";
-import Imp3 from "../../assets/imp3.jpg";
+import Imp1 from "../../assets/imp1.webp";
+import Imp2 from "../../assets/imp2.webp";
+import Imp3 from "../../assets/imp3.webp";
 
 const Impressions = () => {
   const images = [

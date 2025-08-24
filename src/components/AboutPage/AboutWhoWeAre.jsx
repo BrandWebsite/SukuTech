@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import aboutImage1 from "../../assets/about-images.webp";
+import aboutImage1 from "../../assets/about-images (1).webp";
 import { Link } from "react-router-dom";
 
 const AboutWhoWeAre = () => {
@@ -12,7 +12,7 @@ const AboutWhoWeAre = () => {
           <h4 className="text-sm text-blue-600 capitalize font-bold mb-2">
             Our Story, Our Purpose
           </h4>
-          <h2 className="text-2xl md:text-4xl font-bold capitalize text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl text-center font-bold capitalize text-gray-900 mb-4">
             A Legacy of Innovation and Impact
           </h2>
           <p className="text-gray-700 font-medium text-base text-justify leading-relaxed mb-6">
@@ -26,15 +26,15 @@ const AboutWhoWeAre = () => {
 
           {/* CTA Button */}
           <div className="relative group inline-block">
-            <Link to='/contact'>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
+            <Link to="/contact">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
               >
-              <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
-              <span className="relative z-10">Talk To Us</span>
-            </motion.button>
-              </Link>
+                <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
+                <span className="relative z-10">Talk To Us</span>
+              </motion.button>
+            </Link>
           </div>
         </div>
 
@@ -44,6 +44,7 @@ const AboutWhoWeAre = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
             src={aboutImage1}
             alt="About Suku Technologies"
             className="w-full h-[500px]"

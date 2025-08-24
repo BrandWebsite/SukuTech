@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroImage from "../assets/Artboard 2.jpg";
-import heroImage2 from "../assets/Artboard 3.jpg";
+import heroImage from "../assets/Artboard 2.webp";
+import heroImage2 from "../assets/Artboard 3.webp";
 import { FiArrowRight } from "react-icons/fi";
 import RotatingCircle from "./RotatingCircle";
 import { NavLink } from "react-router-dom";
@@ -41,7 +41,7 @@ const Hero = () => {
           <h2 className="text-sm uppercase tracking-widest text-[#2A8ADE] font-semibold">
             Empowering Businesses Worldwide
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mr-3">
+          <h1 className="text-4xl text-center md:text-left md:text-5xl font-bold leading-tight mr-3">
             Powering Growth with Smart IT Solutions
           </h1>
           <p className="text-lg text-gray-200 max-w-lg text-justify">

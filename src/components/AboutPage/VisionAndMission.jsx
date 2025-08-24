@@ -1,5 +1,5 @@
 import React from "react";
-import MissionVisionImage from "../../assets/mission and vision.png";
+import MissionVisionImage from "../../assets/mission and vision.webp";
 import { FaStar, FaUserTie, FaBalanceScale } from "react-icons/fa"; // Icons for Excellence, Leadership, Integrity
 
 const coreValues = [

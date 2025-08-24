@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import arrowDown from "../assets/porcess-shape1.png";
 import arrowUp from "../assets/porcess-shape2.png";
-import planning1 from "../assets/planning.jpg";
-import planning2 from "../assets/planning2.jpg";
-import planning3 from "../assets/planning3.jpg";
+import planning1 from "../assets/planning.webp";
+import planning2 from "../assets/planning2.webp";
+import planning3 from "../assets/planning3.webp";
 
 const steps = [
   {

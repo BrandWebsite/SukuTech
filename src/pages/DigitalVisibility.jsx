@@ -1,11 +1,11 @@
 import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
-import digiImage from "../assets/digitalVisibility.jpg";
-import serviceImg1 from "../assets/SEO.png";
-import serviceImg2 from "../assets/Social Media Marketing.png";
-import serviceImg3 from "../assets/Website Design,Development & Maintenance.png";
-import serviceImg4 from "../assets/Domain & Web Hosting Services.png";
+import digiImage from "../assets/digitalVisibility.webp";
+import serviceImg1 from "../assets/SEO.webp";
+import serviceImg2 from "../assets/Social Media Marketing.webp";
+import serviceImg3 from "../assets/Website Design,Development & Maintenance.webp";
+import serviceImg4 from "../assets/Domain & Web Hosting Services.webp";
 import ContactUs from "../components/ContactUs"; 
 import {
   ArrowRight,
@@ -191,10 +191,11 @@ const DigitalVisibility = () => {
 
           {/* Breadcrumb box */}
           <motion.div
-           initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
-          className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md">
+            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+          >
             <Home size={16} className="text-blue-600" />
 
             <Link
@@ -268,7 +269,7 @@ const DigitalVisibility = () => {
               transition={{ type: "spring", stiffness: 100 }}
               className="space-y-5"
             >
-              <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h4 className="text-2xl text-center md:text-left md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
               {current.description
@@ -373,7 +374,13 @@ const DigitalVisibility = () => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 150 }}
                   key={service}
-                  onClick={() => setActiveService(service)}
+                  onClick={() => {
+                    setActiveService(service);
+                    // scroll to top when a tab is clicked
+                    if (window.innerWidth < 760) {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                   className={`relative overflow-hidden group flex items-center justify-between cursor-pointer rounded-sm p-4 transition-all duration-300 ${
                     activeService === service
                       ? "bg-blue-600 text-white"

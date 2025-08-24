@@ -2,7 +2,7 @@ import React from "react";
 import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import bgImage from "../../assets/contact-bg.png";
+import bgImage from "../../assets/contact-bg.webp";
 
 const ContactHeader = () => {
   return (

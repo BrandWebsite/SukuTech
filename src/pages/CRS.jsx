@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import CrsImage from "../assets/CrsBanner.jpg";
+import CrsImage from "../assets/CrsBanner.webp";
 import CrsPrinciples from "../components/Crs/CrsPrinciples";
 import CrsReport from "../components/Crs/CrsReport";
 import { Link } from "react-router-dom";

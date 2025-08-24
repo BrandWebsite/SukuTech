@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { NavLink,Link } from "react-router-dom";
 import {FiX, FiChevronDown } from "react-icons/fi";
 import { IoEllipsisVertical } from "react-icons/io5";
-import logo from "../assets/LOGO.png";
+import logo from "../assets/LOGO.webp";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NavBar = () => {

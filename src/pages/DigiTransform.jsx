@@ -10,10 +10,10 @@ import {
   UserCheck,
   ClipboardCheck,Home
 } from "lucide-react";
-import digiImage from "../assets/digitalTransfrom.jpg";
-import serviceImg1 from "../assets/A&C.png";
-import serviceImg2 from "../assets/Digital Strategy Development.png";
-import serviceImg3 from "../assets/Change Management & Training.png";
+import digiImage from "../assets/digitalTransfrom.webp";
+import serviceImg1 from "../assets/A&C.webp";
+import serviceImg2 from "../assets/Digital Strategy Development.webp";
+import serviceImg3 from "../assets/Change Management & Training.webp";
 import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom"; // grabs the location id from the Link
 
@@ -171,7 +171,7 @@ const DigiTransform = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
+            className="text-white text-center md:text-left   text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
             Digital Transformation Solutions
           </motion.h1>
@@ -195,7 +195,7 @@ const DigiTransform = () => {
             <span className="text-sm text-gray-300">Service</span>
 
             <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">
+            <span className="text-sm text-center text-gray-300">
               Digital Transformation Solutions
             </span>
           </motion.div>
@@ -222,7 +222,7 @@ const DigiTransform = () => {
       </motion.div>
 
       {/* ==== Main Section ==== */}
-      <section className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-10">
+      <section className="max-w-7xl mx-auto px-4 md:py-16 flex flex-col lg:flex-row gap-10">
         {/* ==== Right Panel ==== */}
         <motion.div
           ref={contentRef}
@@ -260,7 +260,7 @@ const DigiTransform = () => {
               transition={{ type: "spring", stiffness: 100 }}
               className="space-y-5"
             >
-              <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h4 className="text-2xl text-center md:text-left md:text-3xl font-bold text-gray-800">
                 {activeService}
               </h4>
               {current.description
@@ -362,7 +362,13 @@ const DigiTransform = () => {
               {services.map((service) => (
                 <motion.li
                   key={service}
-                  onClick={() => setActiveService(service)}
+                  onClick={() => {
+                    setActiveService(service);
+                    // scroll to top when a tab is clicked
+                    if (window.innerWidth < 768){
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                   whileTap={{ scale: 0.95 }}
                   className={`relative overflow-hidden group flex items-center justify-between cursor-pointer rounded-sm p-4 transition-all duration-300 ${
                     activeService === service

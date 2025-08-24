@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Modal from "react-modal";
-import giving from "../../assets/suku-about-banner.png";
-import giving1 from "../../assets/2023-intership-program.png";
-import giving3 from "../../assets/2022-intership-program.jpg";
-import giving4 from "../../assets/suku-about-banner.png";
+import giving from "../../assets/suku-about-banner.webp";
+import giving1 from "../../assets/2023-intership-program.webp";
+import giving3 from "../../assets/2022-intership-program.webp";
+import giving4 from "../../assets/suku-about-banner.webp";
 
 Modal.setAppElement("#root");
 
