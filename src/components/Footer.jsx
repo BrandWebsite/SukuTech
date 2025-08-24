@@ -11,6 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from '../assets/LOGO.png'
 
 const slideIn = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -30,9 +31,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between gap-y-10 md:gap-x-10">
           {/* Column 1 */}
           <motion.div className="md:w-1/4" {...slideIn(0)}>
-            <h2 className="text-2xl font-bold text-blue-500 mb-4">
-              Suku<span className="text-white">Tech</span>
-            </h2>
+              <Link to='/'>
+                <img className="w-[50%] mb-3 rounded-sm" src={logo} alt=" brand logo" />
+              </Link>
             <p className="text-sm text-gray-300 leading-relaxed">
               Suku Technologies is a leading technology solutions provider
               specializing in software development, digital transformation, and

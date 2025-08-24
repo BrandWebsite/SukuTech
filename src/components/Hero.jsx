@@ -41,7 +41,7 @@ const Hero = () => {
           <h2 className="text-sm uppercase tracking-widest text-[#2A8ADE] font-semibold">
             Empowering Businesses Worldwide
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center mr-3">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mr-3">
             Powering Growth with Smart IT Solutions
           </h1>
           <p className="text-lg text-gray-200 max-w-lg text-justify">

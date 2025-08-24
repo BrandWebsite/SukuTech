@@ -2,10 +2,10 @@ import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
 import digiImage from "../assets/digitalVisibility.jpg";
-import serviceImg1 from "../assets/SEO.jpg";
-import serviceImg2 from "../assets/SocialMarketing.jpg";
-import serviceImg3 from "../assets/WebDesign.jpg";
-import serviceImg4 from "../assets/WebHost.jpg";
+import serviceImg1 from "../assets/SEO.png";
+import serviceImg2 from "../assets/Social Media Marketing.png";
+import serviceImg3 from "../assets/Website Design,Development & Maintenance.png";
+import serviceImg4 from "../assets/Domain & Web Hosting Services.png";
 import ContactUs from "../components/ContactUs"; 
 import {
   ArrowRight,
@@ -254,7 +254,7 @@ const DigitalVisibility = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.1, // delay entry for better pacing
               }}
-              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
+              className="rounded-md overflow-hidden w-full h-[400px] object-cover"
             />
           </AnimatePresence>
 

@@ -7,7 +7,7 @@ import bgImage from "../../assets/contact-bg.png";
 const ContactHeader = () => {
   return (
     <motion.div
-      className="relative w-full h-[300px] sm:h-[400px] md:h-[350px] text-white"
+      className="relative w-full h-[300px] sm:h-[400px] md:h-[300px] text-white"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -20,7 +20,14 @@ const ContactHeader = () => {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-blue-800/35 flex flex-col items-center justify-center text-center">
+      <div
+        className="
+      absolute inset-0 bg-blue-800/35 
+      flex flex-col items-center justify-center 
+      md:items-start 
+      px-0 md:px-12 lg:px-20
+    "
+      >
         <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">
           Contact Us
         </h1>
@@ -38,18 +45,6 @@ const ContactHeader = () => {
           <span className="text-sm text-gray-300">Contact Us</span>
         </div>
       </div>
-
-      {/* Bottom Arch */}
-      <svg
-        className="absolute bottom-0 left-0 w-full"
-        viewBox="0 0 1440 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="white"
-          d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z"
-        />
-      </svg>
     </motion.div>
   );
 };

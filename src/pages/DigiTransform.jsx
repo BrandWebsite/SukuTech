@@ -11,9 +11,9 @@ import {
   ClipboardCheck,Home
 } from "lucide-react";
 import digiImage from "../assets/digitalTransfrom.jpg";
-import serviceImg1 from "../assets/Analyses.jpg";
-import serviceImg2 from "../assets/DigiStrategy.jpg";
-import serviceImg3 from "../assets/changeManage.jpg";
+import serviceImg1 from "../assets/A&C.png";
+import serviceImg2 from "../assets/Digital Strategy Development.png";
+import serviceImg3 from "../assets/Change Management & Training.png";
 import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom"; // grabs the location id from the Link
 
@@ -164,7 +164,7 @@ const DigiTransform = () => {
       absolute inset-0 bg-blue-800/65 
       flex flex-col items-center justify-center 
       md:items-start 
-      px-0 md:px-12 lg:px-20
+      px-4 md:px-12 lg:px-20
     "
         >
           <motion.h1
@@ -246,7 +246,7 @@ const DigiTransform = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.1, // delay entry for better pacing
               }}
-              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
+              className="rounded-md overflow-hidden  w-full h-[400px] object-cover"
             />
           </AnimatePresence>
 

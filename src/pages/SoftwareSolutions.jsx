@@ -12,9 +12,9 @@ import {
   Home,
 } from "lucide-react";
 import digiImage from "../assets/softwareSolutions.jpg";
-import serviceImg1 from "../assets/CustomSoftware.jpg";
-import serviceImg2 from "../assets/MobileWeb.jpg";
-import serviceImg3 from "../assets/main&Support.jpg";
+import serviceImg1 from "../assets/CSD.png";
+import serviceImg2 from "../assets/Web & Mobile Application Development.png";
+import serviceImg3 from "../assets/Maintenance & Support Services.png";
 import ContactUs from "../components/ContactUs";
 import { Link, useLocation } from "react-router-dom";
 
@@ -245,7 +245,7 @@ const SoftwareSolutions = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.1, // delay entry for better pacing
               }}
-              className="rounded-md overflow-hidden shadow w-full h-[400px] object-cover"
+              className="rounded-md overflow-hidden  w-full h-[400px] object-cover"
             />
           </AnimatePresence>
 

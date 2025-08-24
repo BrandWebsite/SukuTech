@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutShapeIcon from "../assets/about-shape2.png";
-import ladyImage from "../assets/ladyImage.jpg";
+import ladyImage from "../assets/Reliable Software Partner2.png";
 import { NavLink } from "react-router-dom";
+import { BarLoader } from "react-spinners";
 
 const AboutHome = () => {
   return (
@@ -11,7 +12,7 @@ const AboutHome = () => {
         <div className="flex flex-col md:flex-row items-start justify-between gap-12">
           {/* Left Div (Image Section with Slide In) */}
           <motion.div
-            className="w-full md:w-1/2 bg-gray-100 h-[500px] rounded-xl bg-cover bg-center shadow-lg"
+            className="w-full md:w-1/2 bg-gray-100 h-[400px]  bg-cover bg-center "
             style={{ backgroundImage: `url(${ladyImage})` }}
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,7 +66,7 @@ const AboutHome = () => {
             </motion.p>
 
             {/* Animated Loader Line */}
-            <div className="relative w-full h-[1.7px] bg-gray-300 overflow-hidden mb-12">
+            {/* <div className="relative w-full h-[1.7px] bg-gray-300 overflow-hidden mb-12">
               <motion.div
                 className="absolute top-0 left-0 h-full w-[10%] bg-[#2A8ADE]"
                 animate={{ x: ["0%", "90%"] }}
@@ -76,6 +77,10 @@ const AboutHome = () => {
                   ease: "linear",
                 }}
               />
+            </div> */}
+
+            <div className="w-full md:w-[550px] mx-auto">
+              <BarLoader width={"100%"} height={2} color="#4b4bf7" />
             </div>
 
             {/* Core Values Section */}
@@ -103,17 +108,17 @@ const AboutHome = () => {
             >
               {/* Button with hover effect */}
               <div className="relative group">
-                <NavLink to='/about'>
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer flex items-center gap-2"
+                <NavLink to="/about">
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer flex items-center gap-2"
                   >
-                  <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
-                  <span className="relative z-10 flex items-center gap-2">
-                    Read More
-                  </span>
-                </motion.button>
-                  </NavLink>
+                    <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
+                    <span className="relative z-10 flex items-center gap-2">
+                      Read More
+                    </span>
+                  </motion.button>
+                </NavLink>
               </div>
 
               {/* Swinging Shape Icon */}

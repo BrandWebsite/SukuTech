@@ -1,5 +1,5 @@
 import React from "react";
-import TeamImage from "../../assets/grouppic.jpg";
+import TeamImage from "../../assets/JoinUs.jpg";
 
 const JoinUs = () => {
   return (
@@ -44,7 +44,7 @@ const JoinUs = () => {
           {/* Image */}
           <div className="flex-1 flex justify-end relative">
             <div className="relative z-30">
-              <div className="bg-white p-2 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+              <div className=" p-2  transform transition-transform duration-300">
                 <img
                   src={TeamImage}
                   alt="Team photo"

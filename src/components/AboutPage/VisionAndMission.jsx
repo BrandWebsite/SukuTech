@@ -1,5 +1,5 @@
 import React from "react";
-import MissionVisionImage from "../../assets/vision&Missionjpg.jpg";
+import MissionVisionImage from "../../assets/mission and vision.png";
 import { FaStar, FaUserTie, FaBalanceScale } from "react-icons/fa"; // Icons for Excellence, Leadership, Integrity
 
 const coreValues = [
@@ -70,7 +70,7 @@ const VisionAndMission = () => {
           <img
             src={MissionVisionImage}
             alt="Mission and Vision"
-            className="w-full h-auto rounded-lg object-cover shadow-lg"
+            className="w-full h-auto  object-cover "
           />
         </div>
       </div>

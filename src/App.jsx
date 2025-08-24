@@ -1,25 +1,43 @@
-
-
-import './App.css'
-import { Toaster } from 'react-hot-toast'
-import Loader from './components/Loader'
-import { lazy, Suspense } from "react";
+import "./App.css";
+import { Toaster } from "react-hot-toast";
+import PageLoading from "./components/PageLoading";
+import { lazy, Suspense, useState, useEffect } from "react";
 
 //Layouts components
-import RootLayout from './Layout/RootLayout'
-import { BrowserRouter, Routes,Route } from 'react-router-dom'
-import ScrollToTop from './components/ScrollToTop'
+import RootLayout from "./Layout/RootLayout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 //Lazy-loaded pages components
-const LandingPage = lazy(()=>import("./pages/LandingPage"));
-const About = lazy(()=>import('./pages/About'));
-const Contact = lazy(()=>import('./pages/Contact'));
-const Careers = lazy(()=>import('./pages/Careers'));
-const DigitalTransform = lazy(()=>import('./pages/DigiTransform'))
-const DigitalVisibility = lazy(()=>import('./pages/DigitalVisibility'))
-const SoftwareSolutions = lazy(()=>import('./pages/SoftwareSolutions'))
-const CRS = lazy(()=>import('./pages/CRS'));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Careers = lazy(() => import("./pages/Careers"));
+const DigitalTransform = lazy(() => import("./pages/DigiTransform"));
+const DigitalVisibility = lazy(() => import("./pages/DigitalVisibility"));
+const SoftwareSolutions = lazy(() => import("./pages/SoftwareSolutions"));
+const CRS = lazy(() => import("./pages/CRS"));
+
 function App() {
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    const visited = localStorage.getItem("visited");
+    if (!visited) {
+      setShowLoader(true); // show loader only first time
+    }
+  }, []);
+
+  if (showLoader) {
+    return (
+      <PageLoading
+        onFinish={() => {
+          localStorage.setItem("visited", "true");
+          setShowLoader(false);
+        }}
+      />
+    );
+  }
 
   return (
     <>
@@ -58,11 +76,9 @@ function App() {
       />
 
       {/* Routing with Lazy Loading */}
-
       <BrowserRouter>
         <ScrollToTop />
-        <Suspense fallback={<Loader />}>
-          {/* routes */}
+        <Suspense fallback={<PageLoading />}>
           <Routes>
             <Route path="/" element={<RootLayout />}>
               <Route index element={<LandingPage />} />
@@ -79,7 +95,7 @@ function App() {
                 path="/software-solutions"
                 element={<SoftwareSolutions />}
               />
-              <Route path='crs' element={<CRS/>} />
+              <Route path="crs" element={<CRS />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
             </Route>
@@ -90,4 +106,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

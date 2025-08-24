@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
-import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
+import { NavLink,Link } from "react-router-dom";
+import {FiX, FiChevronDown } from "react-icons/fi";
+import { IoEllipsisVertical } from "react-icons/io5";
 import logo from "../assets/LOGO.png";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -52,9 +53,9 @@ const NavBar = () => {
     <header className="sticky top-0 z-40 bg-white shadow transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="w-35 h-20 object-contain" />
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex flex-1 justify-center">
@@ -131,94 +132,117 @@ const NavBar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block relative group">
-            <NavLink to='/contact'>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
+          <NavLink to="/contact">
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="relative px-7 py-3 text-white font-medium bg-[#2A8ADE] rounded-full overflow-hidden cursor-pointer"
             >
-            <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
-            <span className="relative z-10">Get in touch</span>
-          </motion.button>
-            </NavLink>
+              <span className="absolute inset-0 bg-[#032040] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></span>
+              <span className="relative z-10">Get in touch</span>
+            </motion.button>
+          </NavLink>
         </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
           <button onClick={toggleMenu}>
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {isOpen ? <FiX size={24} /> : <IoEllipsisVertical size={24} />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-white px-4 pb-4 shadow">
-          <ul className="flex flex-col gap-4">
-            {navLinks.map(({ name, path }) => (
-              <li key={name}>
-                {name === "Service" ? (
-                  <>
-                    <button
-                      onClick={toggleServiceMenu}
-                      className="w-full flex justify-between items-center text-left text-gray-700 font-medium capitalize hover:text-blue-600 transition"
-                    >
-                      {name}
-                      <motion.div
-                        animate={{ rotate: isServiceOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <FiChevronDown />
-                      </motion.div>
-                    </button>
-                    <AnimatePresence>
-                      {isServiceOpen && (
-                        <motion.ul
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="pl-4 mt-2 space-y-4 overflow-hidden"
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Overlay - blur background + disable clicks */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30"
+              onClick={() => setIsOpen(false)} // closes when clicking outside
+            />
+
+            {/* Menu Panel */}
+
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3 }}
+              className="fixed top-3 right-2 rounded-sm w-64 h-[70%] bg-white shadow-lg p-6 z-40 flex flex-col items-center justify-center text-medium"
+            >
+              <ul className="flex flex-col gap-6 mt-10 text-center  w-full">
+                {navLinks.map(({ name, path }) => (
+                  <li key={name}>
+                    {name === "Service" ? (
+                      <>
+                        <button
+                          onClick={toggleServiceMenu}
+                          className="w-full flex  items-center justify-center text-gray-700 font-semibold capitalize hover:text-blue-600 transition relative"
                         >
-                          {serviceSubLinks.map(({ name, path }) => (
-                            <li key={name}>
-                              <NavLink
-                                to={path}
-                                onClick={() => setIsOpen(false)}
-                                className="block text-sm text-gray-700 font-medium capitalize hover:text-blue-600 transition"
-                              >
-                                {name}
-                              </NavLink>
-                            </li>
-                          ))}
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <NavLink
-                    to={path}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      isActive
-                        ? activeClass
-                        : "text-gray-700 font-medium capitalize hover:text-blue-600 transition"
-                    }
-                  >
-                    {name}
+                          {name}
+                          <motion.div
+                            animate={{ rotate: isServiceOpen ? 180 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute right-0"
+                          >
+                            <FiChevronDown />
+                          </motion.div>
+                        </button>
+                        <AnimatePresence>
+                          {isServiceOpen && (
+                            <motion.ul
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="mt-2 space-y-3 text-left pl-4"
+                            >
+                              {serviceSubLinks.map(({ name, path }) => (
+                                <li key={name}>
+                                  <NavLink
+                                    to={path}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-sm text-gray-700 font-medium capitalize hover:text-blue-600 transition"
+                                  >
+                                    {name}
+                                  </NavLink>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <NavLink
+                        to={path}
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                          isActive
+                            ? activeClass
+                            : "text-gray-700 font-semibold capitalize hover:text-blue-600 transition"
+                        }
+                      >
+                        {name}
+                      </NavLink>
+                    )}
+                  </li>
+                ))}
+                <li>
+                  <NavLink to="/contact" onClick={() => setIsOpen(false)}>
+                    <button className="w-full bg-[#2A8ADE] text-white py-2 rounded-lg hover:bg-[#032040] transition cursor-pointer">
+                      Get In Touch
+                    </button>
                   </NavLink>
-                )}
-              </li>
-            ))}
-            <li>
-              <NavLink to='/contact'>
-              <button className="w-full bg-[#2A8ADE] text-white py-2 rounded-lg hover:bg-[#032040] transition cursor-pointer">
-                Get In Touch
-              </button>
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      )}
+                </li>
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

@@ -10,7 +10,7 @@ import {
   Mail,
   X,
 } from "lucide-react";
-import contactImage from "../../assets/contactform2.jpg";
+import contactImage from "../../assets/contactform2.webp";
 
 const IconWrapper = ({ children }) => (
   <div className="w-10 h-10 rounded-full border-2 border-dashed border-white flex items-center justify-center hover:bg-[#1a222e] hover:text-white transition">

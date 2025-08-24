@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Modal from "react-modal";
-import giving from "../../assets/giving.jpg";
-import giving1 from "../../assets/giving1.jpg";
-import giving3 from "../../assets/giving3.jpg";
-import giving4 from "../../assets/giving4.jpg";
+import giving from "../../assets/suku-about-banner.png";
+import giving1 from "../../assets/2023-intership-program.png";
+import giving3 from "../../assets/2022-intership-program.jpg";
+import giving4 from "../../assets/suku-about-banner.png";
 
 Modal.setAppElement("#root");
 
@@ -33,9 +33,9 @@ const CrsReport = () => {
   ]);
 
   const [modalPdf, setModalPdf] = useState(null);
-  const [tappedCard, setTappedCard] = useState(null); // Track tapped card on mobile
+  const [tappedCard, setTappedCard] = useState(null);
 
-  const videoUrl = "https://www.youtube.com/embed/MOl68ngklAo";
+  const videoUrl = "https://www.youtube.com/embed/8uXS_494aSo"; 
 
   const handleMobileTap = (year) => {
     if (tappedCard === year) {

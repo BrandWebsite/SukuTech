@@ -52,7 +52,7 @@ const CRS = () => {
       px-0 md:px-12 lg:px-20
     "
         >
-          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">
+          <h1 className="text-white  text-center text-3xl sm:text-4xl md:text-6xl font-bold">
             Corporate Social Responsibility (CSR)
           </h1>
 
