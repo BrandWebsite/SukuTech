@@ -40,6 +40,7 @@ const JoinUs = () => {
                   src={TeamImage}
                   alt="Team photo"
                   className="w-full max-w-lg h-[400px] lg:h-[450px] object-cover rounded-2xl"
+                  loading="lazy"
                 />
               </div>
             </div>

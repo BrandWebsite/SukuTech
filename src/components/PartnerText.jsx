@@ -153,6 +153,7 @@ const PartnerText = () => {
                 src={logo}
                 alt={`partner-${index}`}
                 className="h-full w-full object-contain grayscale hover:grayscale-0 transition duration-300"
+                loading="lazy"
               />
             </div>
           ))}

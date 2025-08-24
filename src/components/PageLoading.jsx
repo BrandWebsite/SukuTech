@@ -26,7 +26,7 @@ const PageLoading = ({ onFinish }) => {
       }`}
     >
       {/* Logo */}
-      <img src={Icon} alt="Logo" className="w-40 h-25 animate-pulse" />
+      <img src={Icon} alt="Logo" className="w-40 h-25 animate-pulse" loading="lazy" />
 
       {/* FadeLoader spinner */}
       <BarLoader color="#2563eb" height={3} width={140} radius={2} margin={2} speedMultiplier={2} />

@@ -49,6 +49,7 @@ const Feature = () => {
                   src={item.icon}
                   alt={item.title}
                   className="w-10 h-10 transition duration-300"
+                  loading="lazy"
                 />
               </div>
 

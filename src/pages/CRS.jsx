@@ -41,6 +41,7 @@ const CRS = () => {
           src={CrsImage}
           alt="About Banner"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
 
         {/* Overlay */}

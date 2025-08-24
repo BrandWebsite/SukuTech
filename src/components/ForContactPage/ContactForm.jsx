@@ -57,6 +57,7 @@ const ContactForm = () => {
                 src={contactImage}
                 alt="Contact"
                 className="w-full h-72 object-cover"
+                loading="lazy"
               />
               <div className="p-6 text-white">
                 <h3 className="text-lg font-semibold mb-2">

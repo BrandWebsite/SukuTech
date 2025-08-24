@@ -94,6 +94,7 @@ const TestimonialsHome = () => {
                   src={item.thumbnail}
                   alt={item.product}
                   className="w-full h-64 object-cover "
+                  loading="lazy"
                 />
                 <div className="absolute bottom-4 right-4 group">
                   <button

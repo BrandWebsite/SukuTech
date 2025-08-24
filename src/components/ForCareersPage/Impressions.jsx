@@ -45,6 +45,7 @@ const Impressions = () => {
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               className="w-full h-full object-cover rounded-lg transition-all duration-500 ease-in-out brightness-50 group-hover:brightness-100"
+              loading="lazy"
             />
 
             {/* Text Overlay */}

@@ -90,6 +90,7 @@ const HowWeWork = () => {
                   src={step.icon}
                   alt={`Step ${step.number}`}
                   className="w-full h-full object-cover rounded-full"
+                  loading="lazy"
                 />
               </motion.div>
             </div>

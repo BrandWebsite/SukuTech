@@ -17,6 +17,7 @@ const ContactHeader = () => {
         src={bgImage}
         alt="Contact banner"
         className="w-full h-full object-cover"
+        loading="lazy"
       />
 
       {/* Overlay */}

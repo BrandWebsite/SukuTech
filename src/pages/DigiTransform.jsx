@@ -158,6 +158,7 @@ const DigiTransform = () => {
           src={digiImage}
           alt="Digital Transformation"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div
           className="

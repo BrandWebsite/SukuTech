@@ -28,7 +28,7 @@ const Footer = () => {
           {/* Column 1 */}
           <motion.div className="md:w-1/4" {...slideIn(0)}>
               <Link to='/'>
-                <img className="w-[50%] mb-3 rounded-sm" src={logo} alt=" brand logo" />
+                <img className="w-[50%] mb-3 rounded-sm" src={logo} alt=" brand logo" loading="lazy"/>
               </Link>
             <p className="text-sm text-gray-300 leading-relaxed">
               Suku Technologies is a leading technology solutions provider

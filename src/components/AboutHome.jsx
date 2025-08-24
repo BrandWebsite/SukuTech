@@ -113,6 +113,7 @@ const AboutHome = () => {
                 src={aboutShapeIcon}
                 alt="Swing Shape"
                 className="w-18 h-12"
+                loading="lazy"
                 style={{ transformOrigin: "bottom center" }}
                 animate={{ rotate: [-8, 8, -8], y: [0, -2, 0] }}
                 transition={{
