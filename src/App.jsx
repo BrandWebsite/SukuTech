@@ -95,7 +95,7 @@ function App() {
                 path="/software-solutions"
                 element={<SoftwareSolutions />}
               />
-              <Route path="crs" element={<CRS />} />
+              <Route path="csr" element={<CRS />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
             </Route>

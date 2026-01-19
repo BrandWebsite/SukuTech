@@ -364,8 +364,8 @@ const DigitalVisibility = () => {
         >
           <div className="bg-gray-100 p-6 rounded-sm">
             <h3 className="text-xl font-semibold mb-6 relative inline-block text-gray-800">
-              <span className="border-b-4 border-blue-600 w-1/2 inline-block p-3">
-                Services
+              <span className="border-b-4 border-blue-600 w-full inline-block p-3">
+                Digital Visibilty
               </span>
             </h3>
             <ul className="space-y-4">

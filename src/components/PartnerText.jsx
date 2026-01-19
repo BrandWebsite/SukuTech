@@ -110,9 +110,9 @@ const PartnerText = () => {
           custom={0.6}
         >
           {[
-            { value: "10K+", label: "Happy Customers" },
-            { value: "20K+", label: "Projects Delivered" },
-            { value: "99", label: "Expert Team Members" },
+            { value: "5000+", label: "Happy Customers" },
+            { value: "500+", label: "Projects Delivered" },
+            { value: "32", label: "Expert Team Members" },
             { value: "100%", label: "Client Satisfaction" },
           ].map((item, idx) => (
             <motion.div

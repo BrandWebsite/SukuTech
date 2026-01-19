@@ -22,7 +22,7 @@ const NavBar = () => {
     { name: "Service", path: "/digital-transformation" },
     { name: "Contact", path: "/contact" },
     { name: "Careers", path: "/careers" },
-    { name: "CSR", path: "/crs" },
+    { name: "CSR", path: "/csr" },
   ];
 
   const serviceSubLinks = [
@@ -70,16 +70,7 @@ const NavBar = () => {
                 {name === "Service" ? (
                   <>
                     <div className="flex items-center gap-1 text-[#032040] font-medium hover:text-blue-600 transition cursor-pointer capitalize">
-                      <NavLink
-                        to={path}
-                        className={({ isActive }) =>
-                          isActive
-                            ? "relative text-blue-600 font-semibold p-1 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-5 after:h-[2px] after:bg-blue-600 after:rounded-full"
-                            : "relative p-1"
-                        }
-                      >
-                        {name}
-                      </NavLink>
+                      <span className="relative p-1">{name}</span>
                       <motion.div
                         animate={{ rotate: iconHover ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
@@ -103,7 +94,11 @@ const NavBar = () => {
                             <li key={name}>
                               <NavLink
                                 to={path}
-                                className="block px-4 py-2 text-sm text-gray-700 font-medium capitalize hover:bg-blue-50 hover:text-blue-600 transition hover:scale-105"
+                                className={({ isActive }) =>
+                                  isActive
+                                    ? activeClass
+                                    : "block px-4 py-2 text-sm text-gray-700 font-medium capitalize hover:bg-blue-50 hover:text-blue-600 transition hover:scale-105"
+                                }
                               >
                                 {name}
                               </NavLink>
@@ -206,7 +201,11 @@ const NavBar = () => {
                                   <NavLink
                                     to={path}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-sm text-gray-700 font-medium capitalize hover:text-blue-600 transition"
+                                    className={({ isActive }) =>
+                                      isActive
+                                        ? activeClass
+                                        : "block text-sm text-gray-700 font-medium capitalize hover:text-blue-600 transition"
+                                    }
                                   >
                                     {name}
                                   </NavLink>

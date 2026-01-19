@@ -357,7 +357,7 @@ const DigiTransform = () => {
           {/* Tabs */}
           <div className="bg-gray-100 p-6 rounded-sm">
             <h3 className="text-xl font-semibold mb-6 text-gray-800">
-              Services
+              Digital Transformation
             </h3>
             <ul className="space-y-4">
               {services.map((service) => (
