@@ -8,6 +8,9 @@ import RootLayout from "./Layout/RootLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
+// SEO Meta Tags
+import { HelmetProvider } from "react-helmet-async";
+
 //Lazy-loaded pages components
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const About = lazy(() => import("./pages/About"));
@@ -76,32 +79,31 @@ function App() {
       />
 
       {/* Routing with Lazy Loading */}
-      <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route path="/" element={<RootLayout />}>
-              <Route index element={<LandingPage />} />
-              <Route path="/about" element={<About />} />
-              <Route
-                path="/digital-transformation"
-                element={<DigitalTransform />}
-              />
-              <Route
-                path="/digital-visibility"
-                element={<DigitalVisibility />}
-              />
-              <Route
-                path="/software-solutions"
-                element={<SoftwareSolutions />}
-              />
-              <Route path="csr" element={<CRS />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/contact" element={<Contact />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path="/" element={<RootLayout />}>
+                <Route index element={<LandingPage />} />
+                <Route path="/about" element={<About />} />
+                <Route
+                  path="/digital-transformation"
+                  element={<DigitalTransform />} />
+                <Route
+                  path="/digital-visibility"
+                  element={<DigitalVisibility />} />
+                <Route
+                  path="/software-solutions"
+                  element={<SoftwareSolutions />} />
+                <Route path="csr" element={<CRS />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </HelmetProvider>
     </>
   );
 }

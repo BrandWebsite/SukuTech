@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import {
   ArrowRight,
   FolderOpen,
@@ -151,57 +152,68 @@ const DigiTransform = () => {
   const current = serviceDetails[activeService];
 
   return (
-    <div className="w-full min-h-screen">
-      {/* ==== Header Section ==== */}
-      <div className="relative w-full h-[350px] overflow-hidden">
-        <img
-          src={digiImage}
-          alt="Digital Transformation"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div
-          className="
+    <>
+      <Helmet>
+        <title>Digital Transformation Solutions | SuKu Technologies</title>
+        <meta name="description" content="Expert digital transformation solutions from SuKu Technologies. Our services include analysis & consulting, digital strategy development, and change management & training to drive business growth." />
+        <meta name="keywords" content="digital transformation, digital strategy, business consulting, change management, Ghana, technology solutions" />
+        <meta property="og:title" content="Digital Transformation Solutions | SuKu Technologies" />
+        <meta property="og:description" content="Expert digital transformation solutions to drive business growth" />
+        <meta property="og:url" content="https://www.sukutechnologies.com/digital-transformation" />
+        <meta name="twitter:title" content="Digital Transformation Solutions | SuKu Technologies" />
+        <meta name="twitter:description" content="Expert digital transformation solutions to drive business growth" />
+      </Helmet>
+      <div className="w-full min-h-screen">
+        {/* ==== Header Section ==== */}
+        <div className="relative w-full h-[350px] overflow-hidden">
+          <img
+            src={digiImage}
+            alt="Digital Transformation"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div
+            className="
       absolute inset-0 bg-blue-800/65 
       flex flex-col items-center justify-center 
       md:items-start 
       px-4 md:px-12 lg:px-20
     "
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white text-center md:text-left   text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
-            Digital Transformation Solutions
-          </motion.h1>
-
-          {/* Breadcrumb box */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
-            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
-          >
-            <Home size={16} className="text-blue-600" />
-
-            <Link
-              to="/"
-              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-white text-center md:text-left   text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
             >
-              Home
-            </Link>
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">Service</span>
-
-            <span className="text-white">→</span>
-            <span className="text-sm text-center text-gray-300">
               Digital Transformation Solutions
-            </span>
-          </motion.div>
+            </motion.h1>
+
+            {/* Breadcrumb box */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
+              className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+            >
+              <Home size={16} className="text-blue-600" />
+
+              <Link
+                to="/"
+                className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">Service</span>
+
+              <span className="text-white">→</span>
+              <span className="text-sm text-center text-gray-300">
+                Digital Transformation Solutions
+              </span>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
       {/* ==== Description Section ==== */}
       <motion.div
@@ -400,6 +412,7 @@ const DigiTransform = () => {
         </motion.div>
       </section>
     </div>
+      </>
   );
 };
 

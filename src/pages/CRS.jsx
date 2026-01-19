@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import CrsImage from "../assets/CrsBanner.webp";
 import CrsPrinciples from "../components/Crs/CrsPrinciples";
 import CrsReport from "../components/Crs/CrsReport";
@@ -28,51 +29,62 @@ const pageVariants = {
 
 const CRS = () => {
   return (
-    <motion.div
-      className="w-full"
-      variants={pageVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
-      {/* Banner Section */}
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[350px]">
-        <img
-          src={CrsImage}
-          alt="About Banner"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+    <>
+      <Helmet>
+        <title>Corporate Social Responsibility | CSR Initiatives | SuKu Technologies</title>
+        <meta name="description" content="Discover SuKu Technologies' commitment to corporate social responsibility. Learn about our CSR principles, initiatives, and community impact in Ghana and beyond." />
+        <meta name="keywords" content="corporate social responsibility, CSR, community impact, sustainability, Ghana, social initiatives" />
+        <meta property="og:title" content="Corporate Social Responsibility | CSR Initiatives | SuKu Technologies" />
+        <meta property="og:description" content="Discover our commitment to corporate social responsibility and community impact" />
+        <meta property="og:url" content="https://www.sukutechnologies.com/csr" />
+        <meta name="twitter:title" content="Corporate Social Responsibility | CSR Initiatives | SuKu Technologies" />
+        <meta name="twitter:description" content="Discover our commitment to corporate social responsibility" />
+      </Helmet>
+      <motion.div
+        className="w-full"
+        variants={pageVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        {/* Banner Section */}
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[350px]">
+          <img
+            src={CrsImage}
+            alt="About Banner"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
 
-        {/* Overlay */}
-        <div
-          className="
+          {/* Overlay */}
+          <div
+            className="
       absolute inset-0 bg-blue-800/65 
       flex flex-col items-center justify-center 
       md:items-start 
       px-0 md:px-12 lg:px-20
     "
-        >
-          <h1 className="text-white  text-center text-3xl sm:text-4xl md:text-6xl font-bold">
-            Corporate Social Responsibility (CSR)
-          </h1>
+          >
+            <h1 className="text-white  text-center text-3xl sm:text-4xl md:text-6xl font-bold">
+              Corporate Social Responsibility (CSR)
+            </h1>
 
-          {/* Breadcrumb box */}
-          <div className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md mt-5">
-            <Home size={16} className="text-blue-600" />
+            {/* Breadcrumb box */}
+            <div className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md mt-5">
+              <Home size={16} className="text-blue-600" />
 
-            <Link
-              to="/"
-              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
-            >
-              Home
-            </Link>
+              <Link
+                to="/"
+                className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+              >
+                Home
+              </Link>
 
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">CSR</span>
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">CSR</span>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* ==== Description ==== */}
       <motion.div
@@ -96,6 +108,7 @@ const CRS = () => {
       <CrsPrinciples />
       <CrsReport />
     </motion.div>
+      </>
   );
 };
 

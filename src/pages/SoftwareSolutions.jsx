@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import {
   FolderOpen,
   BookOpen,
@@ -151,56 +152,67 @@ const SoftwareSolutions = () => {
 
   const current = serviceDetails[activeService];
   return (
-    <div className="w-full min-h-screen">
-      {/* Header Section */}
-      <div className="relative w-full h-[350px] overflow-hidden">
-        <img
-          src={digiImage}
-          alt="Software Solutions"
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
+    <>
+      <Helmet>
+        <title>Software Solutions | Custom Development, Web & Mobile Apps | SuKu Technologies</title>
+        <meta name="description" content="Expert software solutions from SuKu Technologies. Custom software development, web & mobile applications, and maintenance services in Ghana." />
+        <meta name="keywords" content="custom software development, web applications, mobile apps, software maintenance, Ghana, technology solutions" />
+        <meta property="og:title" content="Software Solutions | Custom Development, Web & Mobile Apps | SuKu Technologies" />
+        <meta property="og:description" content="Expert software solutions to power your business growth" />
+        <meta property="og:url" content="https://www.sukutechnologies.com/software-solutions" />
+        <meta name="twitter:title" content="Software Solutions | Custom Development, Web & Mobile Apps | SuKu Technologies" />
+        <meta name="twitter:description" content="Expert software solutions to power your business growth" />
+      </Helmet>
+      <div className="w-full min-h-screen">
+        {/* Header Section */}
+        <div className="relative w-full h-[350px] overflow-hidden">
+          <img
+            src={digiImage}
+            alt="Software Solutions"
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
 
-        <div
-          className="
+          <div
+            className="
       absolute inset-0 bg-blue-800/65 
       flex flex-col items-center justify-center 
       md:items-start 
       px-0 md:px-12 lg:px-20
     "
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
-            Software Solutions
-          </motion.h1>
-
-          {/* Breadcrumb box */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
-            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
-          >
-            <Home size={16} className="text-blue-600" />
-
-            <Link
-              to="/"
-              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
             >
-              Home
-            </Link>
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">Service</span>
+              Software Solutions
+            </motion.h1>
 
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">Software Solutions</span>
-          </motion.div>
+            {/* Breadcrumb box */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
+              className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+            >
+              <Home size={16} className="text-blue-600" />
+
+              <Link
+                to="/"
+                className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">Service</span>
+
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">Software Solutions</span>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
       {/* Description Section */}
       <motion.div
@@ -405,6 +417,7 @@ const SoftwareSolutions = () => {
         </motion.div>
       </section>
     </div>
+      </>
   );
 };
 

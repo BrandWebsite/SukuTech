@@ -1,5 +1,6 @@
 import React, { useState, useRef,useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 import digiImage from "../assets/digitalVisibility.webp";
 import serviceImg1 from "../assets/SEO.webp";
@@ -162,56 +163,67 @@ const DigitalVisibility = () => {
   const current = serviceDetails[activeService];
 
   return (
-    <div className="w-full min-h-screen">
-      {/* ==== Header ==== */}
-      <div className="relative w-full h-[350px] overflow-hidden">
-        <img
-          src={digiImage}
-          alt="Digital Visibility"
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
+    <>
+      <Helmet>
+        <title>Digital Visibility Services | SEO, Social Media & Web Development | SuKu Technologies</title>
+        <meta name="description" content="Boost your online presence with SuKu Technologies' digital visibility services. Expert SEO, social media marketing, website development, and hosting solutions in Ghana." />
+        <meta name="keywords" content="SEO, social media marketing, website development, web hosting, digital marketing, online visibility, Ghana" />
+        <meta property="og:title" content="Digital Visibility Services | SEO, Social Media & Web Development | SuKu Technologies" />
+        <meta property="og:description" content="Boost your online presence with our expert digital visibility services" />
+        <meta property="og:url" content="https://www.sukutechnologies.com/digital-visibility" />
+        <meta name="twitter:title" content="Digital Visibility Services | SEO, Social Media & Web Development | SuKu Technologies" />
+        <meta name="twitter:description" content="Boost your online presence with our expert digital visibility services" />
+      </Helmet>
+      <div className="w-full min-h-screen">
+        {/* ==== Header ==== */}
+        <div className="relative w-full h-[350px] overflow-hidden">
+          <img
+            src={digiImage}
+            alt="Digital Visibility"
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
 
-        <div
-          className="
+          <div
+            className="
       absolute inset-0 bg-blue-800/65 
       flex flex-col items-center justify-center 
       md:items-start 
       px-0 md:px-12 lg:px-20
     "
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
           >
-            Digital Visibility
-          </motion.h1>
-
-          {/* Breadcrumb box */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
-            className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
-          >
-            <Home size={16} className="text-blue-600" />
-
-            <Link
-              to="/"
-              className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
             >
-              Home
-            </Link>
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">Service</span>
+              Digital Visibility
+            </motion.h1>
 
-            <span className="text-white">→</span>
-            <span className="text-sm text-gray-300">Digital Visibility</span>
-          </motion.div>
+            {/* Breadcrumb box */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3 }} // delay so it comes after heading
+              className="inline-flex items-center gap-2 bg-black/50 border border-gray-400 px-4 py-2 rounded-md shadow-md"
+            >
+              <Home size={16} className="text-blue-600" />
+
+              <Link
+                to="/"
+                className="text-sm text-gray-200 hover:text-blue-700 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">Service</span>
+
+              <span className="text-white">→</span>
+              <span className="text-sm text-gray-300">Digital Visibility</span>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
       {/* ==== Description ==== */}
       <motion.div
@@ -413,6 +425,7 @@ const DigitalVisibility = () => {
         </motion.div>
       </section>
     </div>
+      </>
   );
 };
 
